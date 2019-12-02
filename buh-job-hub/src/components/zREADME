@@ -1,0 +1,15 @@
+**Đặt tên File: 
+Giống tên component, bên trong có Component, css của Component đó, Các file Component con (nếu có)
+
+**Đặt tên Component:
+File bình thương ví dụ: FileName.jsx việc import file này ở các file khác cần '.../File.jsx'
+File thuần js mới đặt filename.js
+
+**Các thông tin file cập nhật bổ sung ghi vào đây lun có gì 10 năm đọc lại còn nhớ...
+Các file _<Name> là các file:
+_App chứa 2 Component _Header, _Main những phần hiện thị xuyên suốt của web.
+_Header sẽ chứa links để liên kết và luân chuyển giữa các page trong website.
+_Main chứa phần nội dung chính của trang web nơi khai báo tất cả các Route.
+    Routes chứa các routes lồng
+Tham khảo Router, Link, Route: https://medium.com/@khaiphan/react-router-v4-2df49046ed63
+

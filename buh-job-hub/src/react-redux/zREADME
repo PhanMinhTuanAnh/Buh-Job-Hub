@@ -1,0 +1,5 @@
+react-redux bao gồm các file feature 
+
+mỗi file feature bao gồm actions, containers, reducers cách đặt tên cho đẹp trai:
+actions, reducers: name_actions.js, name_reducers.js (vì nó là file js) 
+containers Name.jsx (vì nó là file jsx)
