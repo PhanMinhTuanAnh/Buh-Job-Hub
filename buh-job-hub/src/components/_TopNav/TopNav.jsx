@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 class TopNav extends React.Component {
     render() {
         return (
@@ -10,7 +11,7 @@ class TopNav extends React.Component {
                         <div className="sixteen columns">
                             {/* Logo */}
                             <div id="logo">
-                                <h1><a href="index.html"><img src="images/logo2.png" alt="Work Scout" /></a></h1>
+                                <h1><Link to="/"><img src={require('./../../images/logo2.png')} alt="Work Scout" /></Link></h1>
                             </div>
                             {/* Menu */}
                             <nav id="navigation" className="menu">
@@ -38,7 +39,7 @@ class TopNav extends React.Component {
                                     </li>
                                     <li><a href="#">Browse Listings</a>
                                         <ul>
-                                            <li><a href="browse-jobs.html">Browse Jobs</a></li>
+                                            <li><Link to="/browesjob">Browse Jobs</Link></li>
                                             <li><a href="browse-resumes.html">Browse Resumes</a></li>
                                             <li><a href="browse-categories.html">Browse Categories</a></li>
                                         </ul>

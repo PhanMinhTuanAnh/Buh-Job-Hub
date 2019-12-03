@@ -5,14 +5,14 @@ class Home extends React.Component {
             <>
                 {/* Banner
 ================================================== */}
-                <div id="banner" className="with-transparent-header parallax background" style={{ backgroundImage: 'url(images/banner-home-02.jpg)' }} data-img-width={2000} data-img-height={1330} data-diff={300}>
+                <div id="banner" className="with-transparent-header parallax background" style={{ backgroundImage: `url(${require('./../../../images/banner-home-02.jpg')})` }} data-img-width={2000} data-img-height={1330} data-diff={300}>
                     <div className="container">
                         <div className="sixteen columns">
                             <div className="search-container">
                                 {/* Form */}
                                 <h2>Find Job</h2>
-                                <input type="text" className="ico-01" placeholder="job title, keywords or company name" defaultValue />
-                                <input type="text" className="ico-02" placeholder="city, province or region" defaultValue />
+                                <input type="text" className="ico-01" placeholder="job title, keywords or company name"  />
+                                <input type="text" className="ico-02" placeholder="city, province or region"  />
                                 <button><i className="fa fa-search" /></button>
                                 {/* Browse Jobs */}
                                 <div className="browse-jobs">
