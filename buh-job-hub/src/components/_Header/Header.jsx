@@ -16,25 +16,16 @@ class Header extends React.Component {
                             </div>
                             <nav id="navigation" className="menu">
                                 <ul id="responsive">
-                                    {/* <li><a id="current" href="index.html">Home</a>
-                                        <ul>
-                                            <li><a href="index.html">Home #1</a></li>
-                                            <li><a href="index-2.html">Home #2</a></li>
-                                            <li><a href="index-3.html">Home #3</a></li>
-                                            <li><a href="index-4.html">Home #4</a></li>
-                                            <li><a href="index-5.html">Home #5</a></li>
-                                        </ul>
-                                    </li> */}
                                     <li><a href="#">Pages</a>
                                         <ul>
-                                            <li ><Link to="/job-page" onClick={this.OnclickAction}>Job Page</Link></li>
+                                            <li ><Link to="/job-page">Job Page</Link></li>
                                             <li><a href="job-page-alt.html">Job Page Alternative</a></li>
-                                            <li><a href="resume-page.html">Resume Page</a></li>
+                                            <li><Link to="/resume-page">Resume Page</Link></li>
                                             <li><a href="shortcodes.html">Shortcodes</a></li>
                                             <li><a href="icons.html">Icons</a></li>
                                             <li><a href="pricing-tables.html">Pricing Tables</a></li>
                                             <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><Link to="/contact-page">Contact</Link></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Browse Listings</a>
@@ -59,8 +50,8 @@ class Header extends React.Component {
                                     </li>
                                 </ul>
                                 <ul className="float-right">
-                                    <li><a href="my-account.html#tab2"><i className="fa fa-user" /> Sign Up</a></li>
-                                    <li><a href="my-account.html"><i className="fa fa-lock" /> Log In</a></li>
+                                    <li><Link to="/account"><i className="fa fa-user" /> Sign Up</Link></li>
+                                    <li><Link to="/account"><i className="fa fa-lock" /> Log In</Link></li>
                                 </ul>
                             </nav>
                             <div id="mobile-navigation">
