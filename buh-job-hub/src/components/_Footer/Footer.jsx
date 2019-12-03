@@ -3,8 +3,6 @@ class Footer extends React.Component {
     render() {
         return (
             <>
-                {/* Footer
-================================================== */}
                 <div className="margin-top-15" />
                 <div id="footer">
                     {/* Main */}
