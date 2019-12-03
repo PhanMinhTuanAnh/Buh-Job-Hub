@@ -3,7 +3,7 @@ class BrowesJob extends React.Component {
     render() {
         return (
             <div>
-                {/* <div className="clearfix" /> */}
+                <div className="clearfix" />
                 {/* Titlebar
       ================================================== */}
                 <div id="titlebar">
