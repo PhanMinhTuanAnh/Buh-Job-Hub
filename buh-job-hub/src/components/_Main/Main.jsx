@@ -5,8 +5,8 @@ export default class Main extends Component {
     render() {
         return (
             <Switch>
-                {/* <Route exact path='/' component={}/> */}
-                <Route exact path='/jobpage' component={JobPage}/>
+                {/* <Route exact path='/' component={Home}/> */}
+                <Route exact path='/job-page' component={JobPage}/>
             </Switch>
         )
     }

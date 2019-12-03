@@ -3,9 +3,7 @@ class Footer extends React.Component {
     render() {
         return (
             <>
-                <div className="margin-top-15" />
                 <div id="footer">
-                    {/* Main */}
                     <div className="container">
                         <div className="seven columns">
                             <h4>About</h4>
