@@ -30,7 +30,7 @@ class Header extends React.Component {
                                     </li>
                                     <li><a href="#">Browse Listings</a>
                                         <ul>
-                                            <li><Link to="/browesjob">Browse Jobs</Link></li>
+                                            <li><Link to="/browse-job">Browse Jobs</Link></li>
                                             <li><a href="browse-resumes.html">Browse Resumes</a></li>
                                             <li><a href="browse-categories.html">Browse Categories</a></li>
                                         </ul>
