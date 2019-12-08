@@ -9,6 +9,7 @@ import AddJob from '../../Management/Employers/AddJob/AddJob'
 import ManageResumes from '../../Management/Candidates/ManageResumes/ManageResumes'
 import JobAlerts from '../../Management/Candidates/JobAlerts/JobAlerts'
 import AddResume from '../../Management/Candidates/AddResume/AddResume'
+import Profile from '../../Account/Profile/Profile'
 
 export default class DashboardRoutes extends Component {
     render() {
@@ -27,6 +28,8 @@ export default class DashboardRoutes extends Component {
                     <Route path='/dashboard/manage-resumes' component={ManageResumes}/>
                     <Route path='/dashboard/job-alerts' component={JobAlerts}/>
                     <Route path='/dashboard/add-resume' component={AddResume}/>
+                    <Route path='/dashboard/profile' component={Profile}/>
+
                 </Switch>
             </div>
         )

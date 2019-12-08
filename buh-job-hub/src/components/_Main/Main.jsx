@@ -8,7 +8,7 @@ import SignInSignUp from '../Account/SignInSignUp/SignInSignUp'
 import BrowseJob from '../BrowseListings/BrowseJob/BrowseJob'
 import BrowseResumes from '../BrowseListings/BrowseResumes/BrowseResumes'
 import BrowseCategories from '../BrowseListings/BrowseCategories/BrowseCategories'
-import DashboardRoutes from './DashboardRoutes/DashboardRoutes'
+import DashboardRoutes from './_DashboardRoutes/DashboardRoutes'
 export default class Main extends Component {
     render() {
         return (

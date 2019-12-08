@@ -36,8 +36,8 @@ export default class DashboardNav extends Component {
                         </ul>	
 
                         <ul data-submenu-title="Account">
-                            <li><a href="dashboard-my-profile.html">My Profile</a></li>
-                            <li><a href="index.html">Logout</a></li>
+                            <li><Link to = '/dashboard/profile'>My Profile</Link></li>
+                            <li><Link to = '/'>Logout</Link></li>
                         </ul>
                         
                     </div>
