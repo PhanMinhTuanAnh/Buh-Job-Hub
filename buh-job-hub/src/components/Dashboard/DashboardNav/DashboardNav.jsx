@@ -13,20 +13,20 @@ export default class DashboardNav extends Component {
                     <div class="dashboard-nav-inner" >
 
                         <ul data-submenu-title="Start">
-                            <li class="active"><Link to = '/dashboard/webinfo'>Dashboard</Link></li>
-                            <li><a href="dashboard-messages.html">Messages <span class="nav-tag">2</span></a></li>
+                            <li class="active"><Link to = '/dashboard'>Dashboard</Link></li>
+                            <li><Link to = '/dashboard/message'>Messages <span class="nav-tag">2</span></Link></li>
                         </ul>
 
                         <ul data-submenu-title="Management">
-                            <li><a>For Employers</a>
+                            <li class="active-submenu"><a>For Employers</a>
                                 <ul>
-                                    <li><a href="dashboard-manage-jobs.html">Manage Jobs <span class="nav-tag">5</span></a></li>
-                                    <li><a href="dashboard-manage-applications.html">Manage Applications <span class="nav-tag">4</span></a></li>
-                                    <li><a href="dashboard-add-job.html">Add Job</a></li>
+                                    <li><Link to = '/dashboard/manage-jobs'>Manage Jobs <span class="nav-tag">5</span></Link></li>
+                                    <li><Link to = '/dashboard/manage-applications'>Manage Applications <span class="nav-tag">4</span></Link></li>
+                                    <li><Link to = '/dashboard/add-job'>Add Job</Link></li>
                                 </ul>
                             </li>
 
-                            <li><a>For Candidates</a>
+                            <li class="active-submenu"><a>For Candidates</a>
                                 <ul>
                                     <li><a href="dashboard-manage-resumes.html">Manage Resumes <span class="nav-tag">2</span></a></li>
                                     <li><a href="dashboard-job-alerts.html">Job Alerts</a></li>
