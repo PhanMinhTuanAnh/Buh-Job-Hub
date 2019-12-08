@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import { Switch, Route } from 'react-router-dom'
-import Home from '../Home/Home'
-import JobPage from '../Pages/JobPage/JobPage'
-import ResumePage from '../Pages/ResumePage/ResumePage'
-import Contact from '../Pages/Contact/Contact'
-import SignInSignUp from '../Account/SignInSignUp/SignInSignUp'
-import BrowseJob from '../BrowseListings/BrowseJob/BrowseJob'
-import BrowseResumes from '../BrowseListings/BrowseResumes/BrowseResumes'
-import BrowseCategories from '../BrowseListings/BrowseCategories/BrowseCategories'
-import DashboardRoutes from './_DashboardRoutes/DashboardRoutes'
+import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Home from '../Home/Home';
+import JobPage from '../Pages/JobPage/JobPage';
+import ResumePage from '../Pages/ResumePage/ResumePage';
+import Contact from '../Pages/Contact/Contact';
+import SignInSignUp from '../Account/SignInSignUp/SignInSignUp';
+import BrowseJob from '../BrowseListings/BrowseJob/BrowseJob';
+import BrowseResumes from '../BrowseListings/BrowseResumes/BrowseResumes';
+import BrowseCategories from '../BrowseListings/BrowseCategories/BrowseCategories';
+import DashboardRoutes from './_DashboardRoutes/DashboardRoutes';
 export default class Main extends Component {
     render() {
         return (

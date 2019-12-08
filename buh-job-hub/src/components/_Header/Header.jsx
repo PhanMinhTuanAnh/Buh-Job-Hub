@@ -35,19 +35,7 @@ class Header extends React.Component {
                                             <li><Link to="browse-categories">Browse Categories</Link></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Dashboard</a>
-                                        <ul>
-                                            <li><Link to="dashboard">Dashboard</Link></li>
-                                            <li><a href="dashboard-messages.html">Messages</a></li>
-                                            <li><a href="dashboard-manage-resumes.html">Manage Resumes</a></li>
-                                            <li><a href="dashboard-add-resume.html">Add Resume</a></li>
-                                            <li><a href="dashboard-job-alerts.html">Job Alerts</a></li>
-                                            <li><a href="dashboard-manage-jobs.html">Manage Jobs</a></li>
-                                            <li><a href="dashboard-manage-TopNavlications.html">Manage TopNavlications</a></li>
-                                            <li><a href="dashboard-add-job.html">Add Job</a></li>
-                                            <li><a href="dashboard-my-profile.html">My Profile</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><Link to="dashboard">Dashboard</Link></li>
                                 </ul>
                                 <ul className="float-right">
                                     <li><Link to="/account"><i className="fa fa-user" /> Sign Up</Link></li>

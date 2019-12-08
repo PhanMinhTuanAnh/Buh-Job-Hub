@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 export default class Home extends Component {
     render() {
         let style = {
-            backgroundImage: "https://images.idgesg.net/images/article/2018/04/handshake_teamwork_partnership_deal_agreement_merger_collaboration_by_rawpixel_cc0_via_unsplash_1200x800-100754648-large.jpg"
+            backgroundImage: "https://images.idgesg.net/images/article/2018/04/handshake_teamwork_partnership_deal_agreement_merger_collaboration_by_rawpixel_cc0_via_unsplash_1200x800-100754648-large.jpg",
         }
         return (
             <div>

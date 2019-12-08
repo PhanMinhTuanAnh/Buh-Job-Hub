@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-import DashboardNav from '../../Dashboard/DashboardNav/DashboardNav'
-import { Switch, Route } from 'react-router-dom'
-import DashboardWebsiteInfo from '../../Dashboard/DashboardContent/DashboardWebsiteInfo'
-import Message from '../../Message/Message'
-import ManageJobs from '../../Management/Employers/ManageJobs/ManageJobs'
-import ManageApplications from '../../Management/Employers/ManageApplications/ManageApplications'
-import AddJob from '../../Management/Employers/AddJob/AddJob'
-import ManageResumes from '../../Management/Candidates/ManageResumes/ManageResumes'
-import JobAlerts from '../../Management/Candidates/JobAlerts/JobAlerts'
-import AddResume from '../../Management/Candidates/AddResume/AddResume'
-import Profile from '../../Account/Profile/Profile'
+import React, { Component } from 'react';
+import DashboardNav from '../../Dashboard/DashboardNav/DashboardNav';
+import { Switch, Route } from 'react-router-dom';
+import DashboardWebsiteInfo from '../../Dashboard/DashboardContent/DashboardWebsiteInfo';
+import Message from '../../Message/Message';
+import ManageJobs from '../../Management/Employers/ManageJobs/ManageJobs';
+import ManageApplications from '../../Management/Employers/ManageApplications/ManageApplications';
+import AddJob from '../../Management/Employers/AddJob/AddJob';
+import ManageResumes from '../../Management/Candidates/ManageResumes/ManageResumes';
+import JobAlerts from '../../Management/Candidates/JobAlerts/JobAlerts';
+import AddResume from '../../Management/Candidates/AddResume/AddResume';
+import Profile from '../../Account/Profile/Profile';
 
 export default class DashboardRoutes extends Component {
     render() {

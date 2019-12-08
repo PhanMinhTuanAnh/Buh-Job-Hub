@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class AddJob extends Component {
     render() {
         let style = {
-            width: '100%'
+            width: '100%',
         }
         return (
             <div>
