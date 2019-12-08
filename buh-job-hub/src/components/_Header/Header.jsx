@@ -37,7 +37,7 @@ class Header extends React.Component {
                                     </li>
                                     <li><a href="#">Dashboard</a>
                                         <ul>
-                                            <li><a href="dashboard.html">Dashboard</a></li>
+                                            <li><Link to="dashboard">Dashboard</Link></li>
                                             <li><a href="dashboard-messages.html">Messages</a></li>
                                             <li><a href="dashboard-manage-resumes.html">Manage Resumes</a></li>
                                             <li><a href="dashboard-add-resume.html">Add Resume</a></li>

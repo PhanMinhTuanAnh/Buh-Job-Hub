@@ -8,19 +8,21 @@ import Account from '../Account/Account'
 import BrowseJob from '../BrowseListings/BrowseJob/BrowseJob'
 import BrowseResumes from '../BrowseListings/BrowseResumes/BrowseResumes'
 import BrowseCategories from '../BrowseListings/BrowseCategories/BrowseCategories'
-
+import DashboardRoutes from './DashboardRoutes/DashboardRoutes'
 export default class Main extends Component {
     render() {
         return (
             <Switch>
                 <Route exact path='/' component={Home}/>
-                <Route exact path='/job-page' component={JobPage}/>
-                <Route exact path='/account' component={Account}/>
-                <Route exact path='/resume-page' component={ResumePage}/>
-                <Route exact path='/contact-page' component={Contact}/>
-                <Route exact path='/browse-jobs' component={BrowseJob}/>
-                <Route exact path='/browse-resumes' component={BrowseResumes}/>
-                <Route exact path='/browse-categories' component={BrowseCategories}/>
+                <Route path='/job-page' component={JobPage}/>
+                <Route path='/account' component={Account}/>
+                <Route path='/resume-page' component={ResumePage}/>
+                <Route path='/contact-page' component={Contact}/>
+                <Route path='/browse-jobs' component={BrowseJob}/>
+                <Route path='/browse-resumes' component={BrowseResumes}/>
+                <Route path='/browse-categories' component={BrowseCategories}/>
+                <Route path='/dashboard' component={DashboardRoutes}/>
+
             </Switch>
         )
     }
