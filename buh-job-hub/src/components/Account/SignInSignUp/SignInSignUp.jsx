@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import TitleBar from './TitleBar/TitleBar'
 import Content from './Content/Content'
-export default class ResumePage extends Component {
+export default class SignInSignUp extends Component {
   render() {
     return (
       <div>

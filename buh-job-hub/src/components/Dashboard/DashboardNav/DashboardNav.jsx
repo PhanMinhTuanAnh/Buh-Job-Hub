@@ -28,9 +28,9 @@ export default class DashboardNav extends Component {
 
                             <li class="active-submenu"><a>For Candidates</a>
                                 <ul>
-                                    <li><a href="dashboard-manage-resumes.html">Manage Resumes <span class="nav-tag">2</span></a></li>
-                                    <li><a href="dashboard-job-alerts.html">Job Alerts</a></li>
-                                    <li><a href="dashboard-add-resume.html">Add Resume</a></li>
+                                    <li><Link to = '/dashboard/manage-resumes'>Manage Resumes <span class="nav-tag">2</span></Link></li>
+                                    <li><Link to = '/dashboard/job-alerts'>Job Alerts</Link></li>
+                                    <li><Link to = '/dashboard/add-resume'>Add Resume</Link></li>
                                 </ul>
                             </li>	
                         </ul>	

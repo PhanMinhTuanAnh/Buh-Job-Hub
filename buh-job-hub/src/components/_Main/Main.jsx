@@ -4,7 +4,7 @@ import Home from '../Home/Home'
 import JobPage from '../Pages/JobPage/JobPage'
 import ResumePage from '../Pages/ResumePage/ResumePage'
 import Contact from '../Pages/Contact/Contact'
-import Account from '../Account/Account'
+import SignInSignUp from '../Account/SignInSignUp/SignInSignUp'
 import BrowseJob from '../BrowseListings/BrowseJob/BrowseJob'
 import BrowseResumes from '../BrowseListings/BrowseResumes/BrowseResumes'
 import BrowseCategories from '../BrowseListings/BrowseCategories/BrowseCategories'
@@ -15,7 +15,7 @@ export default class Main extends Component {
             <Switch>
                 <Route exact path='/' component={Home}/>
                 <Route path='/job-page' component={JobPage}/>
-                <Route path='/account' component={Account}/>
+                <Route path='/account' component={SignInSignUp}/>
                 <Route path='/resume-page' component={ResumePage}/>
                 <Route path='/contact-page' component={Contact}/>
                 <Route path='/browse-jobs' component={BrowseJob}/>

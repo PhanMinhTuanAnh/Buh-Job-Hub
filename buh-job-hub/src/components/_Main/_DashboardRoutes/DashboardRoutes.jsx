@@ -6,6 +6,9 @@ import Message from '../../Message/Message'
 import ManageJobs from '../../Management/Employers/ManageJobs/ManageJobs'
 import ManageApplications from '../../Management/Employers/ManageApplications/ManageApplications'
 import AddJob from '../../Management/Employers/AddJob/AddJob'
+import ManageResumes from '../../Management/Candidates/ManageResumes/ManageResumes'
+import JobAlerts from '../../Management/Candidates/JobAlerts/JobAlerts'
+import AddResume from '../../Management/Candidates/AddResume/AddResume'
 
 export default class DashboardRoutes extends Component {
     render() {
@@ -21,7 +24,9 @@ export default class DashboardRoutes extends Component {
                     <Route path='/dashboard/manage-jobs' component={ManageJobs}/>
                     <Route path='/dashboard/manage-applications' component={ManageApplications}/>
                     <Route path='/dashboard/add-job' component={AddJob}/>
-
+                    <Route path='/dashboard/manage-resumes' component={ManageResumes}/>
+                    <Route path='/dashboard/job-alerts' component={JobAlerts}/>
+                    <Route path='/dashboard/add-resume' component={AddResume}/>
                 </Switch>
             </div>
         )
