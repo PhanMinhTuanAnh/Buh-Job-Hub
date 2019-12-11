@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Register extends Component {
     render() {
         return (
-            <div className="tab-content" id="tab2" style={{ display: 'none' }}>
+            <div className="tab-content" id="tab2">
                 <form method="post" className="register">
                     <p className="form-row form-row-wide">
                         <label htmlFor="username2">Username:

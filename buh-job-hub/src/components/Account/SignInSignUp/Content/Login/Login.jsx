@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Login extends Component {
     render() {
         return (
-            <div className="tab-content" id="tab1" style={{ display: 'none' }}>
+            <div className="tab-content" id="tab1">
                 <form method="post" className="login">
                     <p className="form-row form-row-wide">
                         <label htmlFor="username">Username:
