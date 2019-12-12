@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 class Header extends React.Component {
     render() {
         let style = {
@@ -16,30 +16,13 @@ class Header extends React.Component {
                             </div>
                             <nav id="navigation" className="menu">
                                 <ul id="responsive">
-                                    <li><a href="#">Pages</a>
-                                        <ul>
-                                            <li ><Link to="/job-page">Job Page</Link></li>
-                                            <li><a href="job-page-alt.html">Job Page Alternative</a></li>
-                                            <li><Link to="/resume-page">Resume Page</Link></li>
-                                            <li><a href="shortcodes.html">Shortcodes</a></li>
-                                            <li><a href="icons.html">Icons</a></li>
-                                            <li><a href="pricing-tables.html">Pricing Tables</a></li>
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><Link to="/contact-page">Contact</Link></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Browse Listings</a>
-                                        <ul>
-                                            <li><Link to="/browse-jobs">Browse Jobs</Link></li>
-                                            <li><Link to="browse-resumes">Browse Resumes</Link></li>
-                                            <li><Link to="browse-categories">Browse Categories</Link></li>
-                                        </ul>
-                                    </li>
+                                    <li><NavLink to="/browse-jobs" activeClassName="selected">Jobs</NavLink></li>
+                                    <li><Link to="browse-resumes">Resumes</Link></li>
                                     <li><Link to="dashboard">Dashboard</Link></li>
                                 </ul>
                                 <ul className="float-right">
-                                    <li><Link to="/account"><i className="fa fa-user" /> Sign Up</Link></li>
-                                    <li><Link to="/account"><i className="fa fa-lock" /> Log In</Link></li>
+                                    <li><Link to="/signup"><i className="fa fa-user" /> Sign Up</Link></li>
+                                    <li><Link to="/signin"><i className="fa fa-lock" /> Log In</Link></li>
                                 </ul>
                             </nav>
                             <div id="mobile-navigation">

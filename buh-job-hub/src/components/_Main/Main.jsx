@@ -15,7 +15,9 @@ export default class Main extends Component {
             <Switch>
                 <Route exact path='/' component={Home}/>
                 <Route path='/job-page' component={JobPage}/>
-                <Route path='/account' component={SignInSignUp}/>
+                {/* <Route path='/account' component={SignInSignUp}/> */}
+                <Route path='/signup' component={()=><SignInSignUp type_id = "1"/>}/>
+                <Route path='/signin' component={()=><SignInSignUp type_id = "2"/>}/>
                 <Route path='/resume-page' component={ResumePage}/>
                 <Route path='/contact-page' component={Contact}/>
                 <Route path='/browse-jobs' component={BrowseJob}/>
