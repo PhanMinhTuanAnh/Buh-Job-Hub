@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { actFetchAllUserInPost } from './../../../../../react-redux/index_actions'
+import { Link } from 'react-router-dom';
 class ManageApplicationsItem extends Component {
     componentDidMount() {
         this.props.actFetchAllUserInPost(this.props.id)
@@ -29,7 +30,7 @@ class ManageApplicationsItem extends Component {
                             <div class="buttons">
                                 <a href="#one-3" class="button gray app-link"><i class="fa fa-pencil"></i> Edit</a>
                                 <a href="#two-3" class="button gray app-link"><i class="fa fa-sticky-note"></i> Add Note</a>
-                                <a href="#three-3" class="button gray app-link"><i class="fa fa-plus-circle"></i> Show Details</a>
+                                <Link to="/dashboard/profile" class="button gray app-link"><i class="fa fa-plus-circle"></i> Show Details</Link>
                             </div>
                             <div class="clearfix"></div>
 
@@ -69,7 +70,7 @@ class ManageApplicationsItem extends Component {
 
                             <div class="app-tab-content" id="three-3">
                                 <i>Full Name:</i>
-                                <span>Kathy Berry</span>
+                                <span>{activity.email.split('@')[0]}</span>
 
                                 <i>Email:</i>
                                 <span><a href="/cdn-cgi/l/email-protection#274c46534f5e09454255555e67425f464a574b420944484a"><span class="__cf_email__" data-cfemail="4922283d2130672b2c3b3b30092c31282439252c672a2624">[email&#160;protected]</span></a></span>

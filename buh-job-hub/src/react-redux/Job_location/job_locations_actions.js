@@ -9,7 +9,7 @@ export const actFetchJobLocationsRequest = () => {
 }
 export const actJobLocations = (job_locations) => {
     return {
-        type: types.FETCH_JOB_TYPES,
+        type: types.FETCH_JOB_LOCATIONS,
         job_locations
     }
 }

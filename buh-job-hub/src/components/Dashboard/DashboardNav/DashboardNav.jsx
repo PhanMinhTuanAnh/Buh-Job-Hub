@@ -20,8 +20,8 @@ export default class DashboardNav extends Component {
                         <ul data-submenu-title="Management">
                             <li className="active-submenu"><a>For Employers</a>
                                 <ul>
-                                    <li><Link to = '/dashboard/manage-jobs'>Manage Jobs <span className="nav-tag">5</span></Link></li>
-                                    <li><Link to = '/dashboard/manage-applications'>Manage Applications <span className="nav-tag">4</span></Link></li>
+                                    <li><Link to = '/dashboard/manage-jobs'>Manage Jobs <span className="nav-tag">12</span></Link></li>
+                                    {/* <li><Link to = '/dashboard/manage-applications'>Manage Applications <span className="nav-tag">4</span></Link></li> */}
                                     <li><Link to = '/dashboard/add-job'>Add Job</Link></li>
                                 </ul>
                             </li>

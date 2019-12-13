@@ -29,7 +29,7 @@ export default class DashboardRoutes extends Component {
                     <Route path='/dashboard/manage-resumes' component={ManageResumes}/>
                     <Route path='/dashboard/job-alerts' component={JobAlerts}/>
                     <Route path='/dashboard/add-resume' component={AddResume}/>
-                    <Route path='/dashboard/profile' component={Profile}/>
+                    <Route path='/dashboard/profile/:id' component={({match})=> <Profile match = {match}/>} />
 
                 </Switch>
             </div>

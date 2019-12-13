@@ -16,6 +16,7 @@ class AddJob extends Component {
     componentDidMount() {
         this.props.actFetchJobTypesRequest();
         this.props.actFetchCategoriesRequest();
+        this.props.actFetchJobLocationsRequest();
     }
     showJobTypeItem = (job_types) => {
         return (
@@ -31,6 +32,15 @@ class AddJob extends Component {
             categories.map((category, index) => {
                 return (
                     <option key={index} value={category.id}>{category.category_name}</option>
+                )
+            })
+        )
+    }
+    showLocationItem = (job_locations) => {
+        return (
+            job_locations.map((job_location, index) => {
+                return (
+                    <option key={index} value={job_location.id}>{job_location.city}</option>
                 )
             })
         )
@@ -128,9 +138,13 @@ class AddJob extends Component {
 
 
                                         <div class="form">
-                                            <h5>Location <span>(optional)</span></h5>
-                                            <input class="search-field" type="text" placeholder="e.g. London" value="" />
-                                            <p class="note">Leave this blank if the location is not important</p>
+                                            <h5>Location</h5>
+                                            <select data-placeholder="Choose Locations" class="chosen-select-no-single"
+                                                name="location"
+                                                value={location}
+                                                onChange={this.onChange}>
+                                                {this.showLocationItem(this.props.job_locations)}
+                                            </select>
                                         </div>
 
 
@@ -226,6 +240,7 @@ const mapStateToProps = (state) => {
     return {
         job_types: state.job_types,
         categories: state.categories,
+        job_locations : state.job_locations,
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -238,6 +253,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         actAddJobPostRequest: (job_post) => {
             dispatch(actions.actAddJobPostRequest(job_post))
+        },
+        actFetchJobLocationsRequest: (job_locations) => {
+            dispatch(actions.actFetchJobLocationsRequest(job_locations))
         }
     }
 }
