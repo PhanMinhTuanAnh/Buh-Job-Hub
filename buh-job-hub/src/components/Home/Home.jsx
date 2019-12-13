@@ -17,7 +17,7 @@ export default class Home extends Component {
                                 <h2>Find Job</h2>
                                 <input type="text" class="ico-01" placeholder="job title, keywords or company name" value=""/>
                                 <input type="text" class="ico-02" placeholder="city, province or region" value=""/>
-                                <Link><button><i class="fa fa-search"></i></button></Link>
+                                <Link to ="#"><button><i class="fa fa-search"></i></button></Link>
 
                                 <div class="browse-jobs">
                                     Browse job offers by <a href="browse-categories.html"> category</a> or <a href="#">location</a>

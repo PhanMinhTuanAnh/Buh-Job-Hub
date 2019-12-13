@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ManageJobsItem from './ManageJobsItem/ManageJobsItem';
 
 export default class ManageJobs extends Component {
     render() {
@@ -45,40 +46,7 @@ export default class ManageJobs extends Component {
                                             <th></th>
                                         </tr>
                                                 
-                                        <tr>
-                                            <td class="title"><a href="#">Marketing Coordinator - SEO / SEM Experience <span class="pending">(Pending Approval)</span></a></td>
-                                            <td class="centered">-</td>
-                                            <td>September 30, 2015</td>
-                                            <td>October 10, 2015</td>
-                                            <td class="centered">-</td>
-                                            <td class="action">
-                                                <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
-                                            </td>
-                                        </tr>
-                                                
-                                        <tr>
-                                            <td class="title"><a href="#">Web Developer - Front End Web Development, Relational Databases</a></td>
-                                            <td class="centered">-</td>
-                                            <td>September 30, 2015</td>
-                                            <td>October 10, 2015</td>
-                                            <td class="centered"><a href="dashboard-manage-applications.html" class="button">Show (4)</a></td>
-                                            <td class="action">
-                                                <a href="#"><i class="fa fa-pencil"></i> Edit</a>
-                                                <a href="#"><i class="fa  fa-check "></i> Mark Filled</a>
-                                                <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
-                                            </td>
-                                        </tr>	
-
-                                        <tr>
-                                            <td class="title"><a href="#">Power Systems User Experience Designer</a></td>
-                                            <td class="centered"><i class="fa fa-check"></i></td>
-                                            <td>May 16, 2015</td>
-                                            <td>June 30, 2015</td>
-                                            <td class="centered"><a href="dashboard-manage-applications.html" class="button">Show (9)</a></td>
-                                            <td class="action">
-                                                <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
-                                            </td>
-                                        </tr>
+                                        <ManageJobsItem/>
 
                                     </table>
 
