@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import * as actions from './../../../../react-redux/index_actions';
+import { Link } from 'react-router-dom';
 
-export default class ManageResumes extends Component {
+
+class ManageResumes extends Component {
+    componentDidMount(){
+        this.props.actFetchResumesRequest();
+    }
+
     render() {
+        console.log(this.props.resumes)
         return (
             <div>
                 <div class="dashboard-content">
@@ -12,8 +21,8 @@ export default class ManageResumes extends Component {
                             <h2>Manage Resumes</h2>
                             <nav id="breadcrumbs">
                                 <ul>
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Dashboard</a></li>
+                                    <li><Link to="/">Home</Link></li>
+                                    <li><Link to="/dashboard">Dashboard</Link></li>
                                     <li>Manage Resumes</li>
                                 </ul>
                             </nav>
@@ -26,9 +35,9 @@ export default class ManageResumes extends Component {
                     
                     <div class="col-lg-12 col-md-12">
 
-                        <div class="notification notice">
+                        {/* <div class="notification notice">
                             Your resume can be viewed, edited or removed below.
-                        </div>
+                        </div> */}
 
                         <div class="dashboard-list-box margin-top-30">
                             <div class="dashboard-list-box-content">
@@ -43,7 +52,7 @@ export default class ManageResumes extends Component {
                                             <th></th>
                                         </tr>
 
-                                        <tr>
+                                        {/* <tr>
                                             <td class="title"><a href="#">John Doe</a></td>
                                             <td>Front End Web Developer</td>
                                             <td>New York</td>
@@ -65,7 +74,7 @@ export default class ManageResumes extends Component {
                                                 <a href="#"><i class="fa  fa-eye-slash"></i> Hide</a>
                                                 <a href="#" class="delete"><i class="fa fa-remove"></i> Delete</a>
                                             </td>
-                                        </tr>	
+                                        </tr>	 */}
 
                                     </table>
                             </div>
@@ -84,3 +93,16 @@ export default class ManageResumes extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        resumes: state.resumes_reducer,
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actFetchResumesRequest: () => {
+            dispatch(actions.actFetchResumesRequest())
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ManageResumes);

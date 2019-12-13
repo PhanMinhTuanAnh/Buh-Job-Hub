@@ -1,6 +1,7 @@
 import {
     combineReducers
 } from 'redux';
+import resumes_reducer from './candidates/resumes_reducer'
 import job_posts from './Job_post/job_posts'
 import job_post_activities from './Job_post_activities/job_post_activities'
 import job_types from './Job_type/job_types'
@@ -12,6 +13,7 @@ const appReducer = combineReducers({
     job_types,
     categories,
     job_locations,
+    resumes_reducer,
 })
 
 export default appReducer;

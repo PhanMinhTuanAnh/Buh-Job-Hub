@@ -38,35 +38,34 @@ export default class ManageApplications extends Component {
                             </div>
                         </div>
 
-                    <div class="col-md-6">
-                        <select data-placeholder="Filter by status" class="chosen-select-no-single">
-                            <option value="">Filter by status</option>
-                            <option value="new">New</option>
-                            <option value="interviewed">Interviewed</option>
-                            <option value="offer">Offer extended</option>
-                            <option value="hired">Hired</option>
-                            <option value="archived">Archived</option>
-                        </select>
-                        <div class="margin-bottom-15"></div>
-                    </div>
+                        <div class="col-md-6">
+                            <select data-placeholder="Filter by status" class="chosen-select-no-single">
+                                <option value="">Filter by status</option>
+                                <option value="new">New</option>
+                                <option value="interviewed">Interviewed</option>
+                                <option value="offer">Offer extended</option>
+                                <option value="hired">Hired</option>
+                                <option value="archived">Archived</option>
+                            </select>
+                            <div class="margin-bottom-15"></div>
+                        </div>
 
-                    <div class="col-md-6">
-                        <select data-placeholder="Newest first" class="chosen-select-no-single">
-                            <option value="">Newest first</option>
-                            <option value="name">Sort by name</option>
-                            <option value="rating">Sort by rating</option>
-                        </select>
-                        <div class="margin-bottom-35"></div>
-                    </div>
-
+                        <div class="col-md-6">
+                            <select data-placeholder="Newest first" class="chosen-select-no-single">
+                                <option value="">Newest first</option>
+                                <option value="name">Sort by name</option>
+                                <option value="rating">Sort by rating</option>
+                            </select>
+                            <div class="margin-bottom-35"></div>
+                        </div>
 
                     <div class="col-md-12">
                         <ManageApplicationsItem id = {this.props.match.params.id}/>
-                    </div>
-                        <div class="col-md-12">
-                            <div class="copyrights">© 2019 WorkScout. All Rights Reserved.</div>
                         </div>
-                    </div>
+                            <div class="col-md-12">
+                                <div class="copyrights">© 2019 WorkScout. All Rights Reserved.</div>
+                            </div>
+                        </div>
 
                     </div>
             </div>

@@ -18,7 +18,7 @@ class Header extends React.Component {
                                 <ul id="responsive">
                                     <li><NavLink to="/browse-jobs" activeClassName="selected">Jobs</NavLink></li>
                                     <li><Link to="browse-resumes">Resumes</Link></li>
-                                    <li><Link to="dashboard">Dashboard</Link></li>
+                                    <li><Link to="/dashboard">Dashboard</Link></li>
                                 </ul>
                                 <ul className="float-right">
                                     <li><Link to="/signup"><i className="fa fa-user" /> Sign Up</Link></li>
