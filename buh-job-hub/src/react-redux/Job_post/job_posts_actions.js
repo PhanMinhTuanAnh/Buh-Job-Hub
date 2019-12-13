@@ -28,3 +28,19 @@ export const actAddJobPost = (job_post) => {
         job_post
     }
 }
+
+//delete
+export const actDeleteJobPostRequest = (id) => {
+    return (dispatch) => {
+        return callApi(`job_posts/${id}`, 'DELETE', null).then(res => {
+            console.log(res)
+            dispatch(actDeleteJobPost(id))
+        });
+    }
+}
+export const actDeleteJobPost = (id) => {
+    return {
+        type: types.DELETE_JOB_POST,
+        id
+    }
+}

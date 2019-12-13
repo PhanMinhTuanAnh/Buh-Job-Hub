@@ -59,7 +59,7 @@ class AddJob extends Component {
         var job_post = {
             job_description: title,
             category_id: category,
-            // users_id : email,
+            // users_id : email, // user đang đăng nhập vào đây 
             job_types_id : job_type,
             job_locations_id : location
         }

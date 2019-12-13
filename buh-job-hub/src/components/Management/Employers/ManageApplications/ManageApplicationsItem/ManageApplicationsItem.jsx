@@ -30,7 +30,7 @@ class ManageApplicationsItem extends Component {
                             <div class="buttons">
                                 <a href="#one-3" class="button gray app-link"><i class="fa fa-pencil"></i> Edit</a>
                                 <a href="#two-3" class="button gray app-link"><i class="fa fa-sticky-note"></i> Add Note</a>
-                                <Link to="/dashboard/profile" class="button gray app-link"><i class="fa fa-plus-circle"></i> Show Details</Link>
+                                <Link to={`/dashboard/profile/${activity.user_id}`} class="button gray app-link"><i class="fa fa-plus-circle"></i> Show Details</Link>
                             </div>
                             <div class="clearfix"></div>
 
