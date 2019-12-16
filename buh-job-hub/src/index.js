@@ -7,7 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import appReducer from './react-redux/index_reducer.js'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 
 const composeEnhancers = composeWithDevTools({
@@ -17,6 +17,7 @@ const store = createStore(
     composeEnhancers(
         applyMiddleware(thunk),
     )
+    
 );
 
 ReactDOM.render(

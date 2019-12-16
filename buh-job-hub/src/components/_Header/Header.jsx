@@ -1,6 +1,14 @@
 import React from 'react';
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {logoutUser} from '../../react-redux/Account(Ex)/account_actions'
 class Header extends React.Component {
+
+    handleClick = event => {
+        event.preventDefault();
+        localStorage.removeItem('token');
+        this.props.logoutUser();
+    }
     render() {
         let style = {
             background : "#202020",
@@ -38,8 +46,22 @@ class Header extends React.Component {
                                     <li><Link to="dashboard">Dashboard</Link></li>
                                 </ul>
                                 <ul className="float-right">
+                                    {!localStorage.getItem("token") && 
+                                    <>
+                                    
                                     <li><Link to="/account"><i className="fa fa-user" /> Sign Up</Link></li>
                                     <li><Link to="/account"><i className="fa fa-lock" /> Log In</Link></li>
+                                    </>
+                                    }  
+                                    
+                                    {localStorage.getItem("token")
+                                            ?
+                                            <>
+                                            <button onClick={this.handleClick}>Log Out</button>
+                                            </>
+                                            : null
+                            
+                                    }
                                 </ul>
                             </nav>
                             <div id="mobile-navigation">
@@ -51,5 +73,13 @@ class Header extends React.Component {
             </>
         );
     }
+    
 }
-export default Header;
+const mapStateToProps = state => ({
+    currentUser: state.login_reducer.currentUser
+  })
+const mapDispatchToProps = dispatch => ({
+    //getProfileFetch: () => dispatch(getProfileFetch()),
+    logoutUser: () => dispatch(logoutUser())
+  })
+  export default connect(mapStateToProps, mapDispatchToProps)(Header); 
