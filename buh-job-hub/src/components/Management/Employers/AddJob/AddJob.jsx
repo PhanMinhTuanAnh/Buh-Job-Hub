@@ -58,11 +58,12 @@ class AddJob extends Component {
         var { email, title, job_type, category,location } = this.state
         var job_post = {
             job_description: title,
-            category_id: category,
+            categories_id: category,
             // users_id : email, // user đang đăng nhập vào đây 
             job_types_id : job_type,
             job_locations_id : location
         }
+        console.log(job_post)
         this.props.actAddJobPostRequest(job_post)
     }
     
