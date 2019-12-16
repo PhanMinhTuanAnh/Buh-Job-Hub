@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route,Router } from 'react-router-dom';
 import Home from '../Home/Home';
 import JobPage from '../Pages/JobPage/JobPage';
 import ResumePage from '../Pages/ResumePage/ResumePage';
@@ -25,7 +25,7 @@ export default class Main extends Component {
                 <Route path='/browse-categories' component={BrowseCategories}/>
                 <Route path='/dashboard' component={DashboardRoutes}/>
 
-            </Switch>
+            </Switch> 
         )
     }
 }
