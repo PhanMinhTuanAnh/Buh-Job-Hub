@@ -6,8 +6,8 @@ export default class SignInSignUp extends Component {
     return (
       <div>
         <div className="clearfix" />
-        <TitleBar />
-        <Content />
+        <TitleBar type_id={this.props.type_id}/>
+        <Content type_id={this.props.type_id}/>
       </div>
     );
   }

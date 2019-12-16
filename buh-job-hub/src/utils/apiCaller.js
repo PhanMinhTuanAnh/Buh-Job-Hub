@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as Config from '../constants/config_constant';
+import * as Config from './../constants/config_constant';
 
 export default function callApi(endpoint, method = 'GET', body) {
     return axios({
@@ -7,6 +7,7 @@ export default function callApi(endpoint, method = 'GET', body) {
         url: `${Config.API_URL}/${endpoint}`,
         data: body,
     }).catch((err) => {
+        console.log(`${Config.API_URL}/${endpoint}`)
         console.log(err);
     })
 };

@@ -24,26 +24,9 @@ class Header extends React.Component {
                             </div>
                             <nav id="navigation" className="menu">
                                 <ul id="responsive">
-                                    <li><a href="#">Pages</a>
-                                        <ul>
-                                            <li ><Link to="/job-page">Job Page</Link></li>
-                                            <li><a href="job-page-alt.html">Job Page Alternative</a></li>
-                                            <li><Link to="/resume-page">Resume Page</Link></li>
-                                            <li><a href="shortcodes.html">Shortcodes</a></li>
-                                            <li><a href="icons.html">Icons</a></li>
-                                            <li><a href="pricing-tables.html">Pricing Tables</a></li>
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><Link to="/contact-page">Contact</Link></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Browse Listings</a>
-                                        <ul>
-                                            <li><Link to="/browse-jobs">Browse Jobs</Link></li>
-                                            <li><Link to="browse-resumes">Browse Resumes</Link></li>
-                                            <li><Link to="browse-categories">Browse Categories</Link></li>
-                                        </ul>
-                                    </li>
-                                    <li><Link to="dashboard">Dashboard</Link></li>
+                                    <li><NavLink to="/browse-jobs" activeClassName="selected">Jobs</NavLink></li>
+                                    <li><Link to="browse-resumes">Resumes</Link></li>
+                                    <li><Link to="/dashboard">Dashboard</Link></li>
                                 </ul>
                                 <ul className="float-right">
                                     {!localStorage.getItem("token") && 

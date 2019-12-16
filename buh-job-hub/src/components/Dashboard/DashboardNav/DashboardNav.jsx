@@ -8,27 +8,27 @@ export default class DashboardNav extends Component {
         }
         return (
             <div>
-                <a href="#" class="dashboard-responsive-nav-trigger"><i class="fa fa-reorder"></i> Dashboard Navigation</a>
-                <div class="dashboard-nav" style = {style}>
-                    <div class="dashboard-nav-inner" >
+                <a href="#" className="dashboard-responsive-nav-trigger"><i className="fa fa-reorder"></i> Dashboard Navigation</a>
+                <div className="dashboard-nav" style = {style}>
+                    <div className="dashboard-nav-inner" >
 
                         <ul data-submenu-title="Start">
-                            <li class="active"><Link to = '/dashboard'>Dashboard</Link></li>
-                            <li><Link to = '/dashboard/message'>Messages <span class="nav-tag">2</span></Link></li>
+                            <li className="active"><Link to = '/dashboard'>Dashboard</Link></li>
+                            <li><Link to = '/dashboard/message'>Messages <span className="nav-tag">2</span></Link></li>
                         </ul>
 
                         <ul data-submenu-title="Management">
-                            <li class="active-submenu"><a>For Employers</a>
+                            <li className="active-submenu"><a>For Employers</a>
                                 <ul>
-                                    <li><Link to = '/dashboard/manage-jobs'>Manage Jobs <span class="nav-tag">5</span></Link></li>
-                                    <li><Link to = '/dashboard/manage-applications'>Manage Applications <span class="nav-tag">4</span></Link></li>
+                                    <li><Link to = '/dashboard/manage-jobs'>Manage Jobs <span className="nav-tag">12</span></Link></li>
+                                    {/* <li><Link to = '/dashboard/manage-applications'>Manage Applications <span className="nav-tag">4</span></Link></li> */}
                                     <li><Link to = '/dashboard/add-job'>Add Job</Link></li>
                                 </ul>
                             </li>
 
-                            <li class="active-submenu"><a>For Candidates</a>
+                            <li className="active-submenu"><a>For Candidates</a>
                                 <ul>
-                                    <li><Link to = '/dashboard/manage-resumes'>Manage Resumes <span class="nav-tag">2</span></Link></li>
+                                    <li><Link to = '/dashboard/manage-resumes'>Manage Resumes <span className="nav-tag">2</span></Link></li>
                                     <li><Link to = '/dashboard/job-alerts'>Job Alerts</Link></li>
                                     <li><Link to = '/dashboard/add-resume'>Add Resume</Link></li>
                                 </ul>

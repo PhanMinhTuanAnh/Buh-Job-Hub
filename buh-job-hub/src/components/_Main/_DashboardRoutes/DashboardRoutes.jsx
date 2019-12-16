@@ -22,13 +22,14 @@ export default class DashboardRoutes extends Component {
                 <Switch>
                     <Route exact path='/dashboard' component={DashboardWebsiteInfo}/>
                     <Route path='/dashboard/message' component={Message}/>
-                    <Route path='/dashboard/manage-jobs' component={ManageJobs}/>
-                    <Route path='/dashboard/manage-applications' component={ManageApplications}/>
+                    <Route exact path='/dashboard/manage-jobs' component={ManageJobs}/>
+                    {/* <Route path='/dashboard/manage-applications' component={ManageApplications}/> */}
+                    <Route path="/dashboard/manage-jobs/:id" component={({match})=> <ManageApplications match = {match}/>} />
                     <Route path='/dashboard/add-job' component={AddJob}/>
                     <Route path='/dashboard/manage-resumes' component={ManageResumes}/>
                     <Route path='/dashboard/job-alerts' component={JobAlerts}/>
                     <Route path='/dashboard/add-resume' component={AddResume}/>
-                    <Route path='/dashboard/profile' component={Profile}/>
+                    <Route path='/dashboard/profile/:id' component={({match})=> <Profile match = {match}/>} />
 
                 </Switch>
             </div>
