@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {Link, NavLink} from 'react-router-dom'
 import {logoutUser} from '../../react-redux/Account(Ex)/account_actions'
 class Header extends React.Component {
 
@@ -32,8 +32,8 @@ class Header extends React.Component {
                                     {!localStorage.getItem("token") && 
                                     <>
                                     
-                                    <li><Link to="/account"><i className="fa fa-user" /> Sign Up</Link></li>
-                                    <li><Link to="/account"><i className="fa fa-lock" /> Log In</Link></li>
+                                    <li><Link to="/signup"><i className="fa fa-user" /> Sign Up</Link></li>
+                                    <li><Link to="/signin"><i className="fa fa-lock" /> Log In</Link></li>
                                     </>
                                     }  
                                     
