@@ -26,13 +26,8 @@ export default class ManageResumes extends Component {
                         </div>
                     </div>
                 </div>
-
-
                     
                 <ResumesTable />
-
-                 
-                
 
                 </div>
             </div>

@@ -36,7 +36,7 @@ export default class DashboardNav extends Component {
                         </ul>	
 
                         <ul data-submenu-title="Account">
-                            <li><Link to = '/dashboard/profile'>My Profile</Link></li>
+                            <li><Link to = {`/dashboard/profile/${1}`}>My Profile</Link></li>
                             <li><Link to = '/'>Logout</Link></li>
                         </ul>
                         

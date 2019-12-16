@@ -8,7 +8,7 @@ import ManageApplications from '../../Management/Employers/ManageApplications/Ma
 import AddJob from '../../Management/Employers/AddJob/AddJob';
 import ManageResumes from '../../Management/Candidates/ManageResumes/ManageResumes';
 import JobAlerts from '../../Management/Candidates/JobAlerts/JobAlerts';
-import AddResume from '../../Management/Candidates/AddResume/AddResume';
+import Resume from '../../Management/Candidates/Resume(Container)/Resume';
 import Profile from '../../Account/Profile/Profile';
 
 export default class DashboardRoutes extends Component {
@@ -28,8 +28,8 @@ export default class DashboardRoutes extends Component {
                     <Route path='/dashboard/add-job' component={AddJob}/>
                     <Route path='/dashboard/manage-resumes' component={ManageResumes}/>
                     <Route path='/dashboard/job-alerts' component={JobAlerts}/>
-                    <Route path='/dashboard/edit-resume/:id' component={({match}) => <AddResume match = {match} form = "Edit Resume"/>}/>
-                    <Route path='/dashboard/add-resume' component={({match}) => <AddResume match = {match} form = "Add Resume"/>}/>
+                    <Route path='/dashboard/edit-resume/:id' component={({match}) => <Resume match = {match} form = "Edit Resume"/>}/>
+                    <Route path='/dashboard/add-resume' component={({match}) => <Resume match = {match} form = "Add Resume"/>}/>
                     <Route path='/dashboard/profile/:id' component={({match})=> <Profile match = {match}/>} />
 
                 </Switch>
