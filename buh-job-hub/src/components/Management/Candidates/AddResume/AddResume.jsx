@@ -1,22 +1,36 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class AddResume extends Component {
     render() {
         let style = {
             width: "100%",
         }
+
+        let styleButton = {
+            float: "right",
+        }
+
+        let button = <Link to="#" class="button margin-top-30"><i class="fa fa-save"/> Save</Link>
+        
+        if(this.props.form == "Add Resume"){
+            button = <Link to="#" class="button margin-top-30"><i class="fa fa-plus-circle"/> Add</Link>
+
+        }
+
+
         return (
             <div>
                 <div class="dashboard-content">
                     <div id="titlebar">
                         <div class="row">
                             <div class="col-md-12">
-                                <h2>Add Resume</h2>
+                            <h2>{this.props.form}</h2>
                                 <nav id="breadcrumbs">
                                     <ul>
                                         <li><a href="#">Home</a></li>
                                         <li><a href="#">Dashboard</a></li>
-                                        <li>Add Resume</li>
+                                        <li>{this.props.form}</li>
                                     </ul>
                                 </nav>
                             </div>
@@ -119,8 +133,8 @@ export default class AddResume extends Component {
                                 </div>
                             </div>
 
-
-                            <a href="#" class="button margin-top-30">Preview <i class="fa fa-arrow-circle-right"></i></a>
+                            {button}
+                            <Link to="#" class="button margin-top-30" style={styleButton}>Preview <i class="fa fa-arrow-circle-right"></i></Link>
 
                         </div>
 

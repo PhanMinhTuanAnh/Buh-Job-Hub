@@ -10,11 +10,11 @@ export default class ManageResumes extends Component {
     render() {
         return (
             <div>
-                <div class="dashboard-content">
+                <div className="dashboard-content">
 
                 <div id="titlebar">
-                    <div class="row">
-                        <div class="col-md-12">
+                    <div className="row">
+                        <div className="col-md-12">
                             <h2>Manage Resumes</h2>
                             <nav id="breadcrumbs">
                                 <ul>

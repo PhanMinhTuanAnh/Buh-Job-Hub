@@ -22,14 +22,14 @@ class ResumesTable extends Component {
                 if(resume.user_id == currentid)
                     return(
                         <tr>
-                            <td class="title"><a href="#">{resume.user_name}</a></td>
+                            <td className="title"><a href="#">{resume.user_name}</a></td>
                             <td>{resume.title}</td>
                             <td>{resume.location}</td>
                             <td>{resume.created_at_convert}</td>
-                            <td class="action">
-                                <a href="#"><i class="fa fa-pencil"></i> Edit</a>
-                                <a href="#"><i class="fa  fa-eye-slash"></i> Hide</a>
-                                <a id={resume.id} href="#" class="delete" onClick={this.onClickDelete}><i class="fa fa-remove"></i> Delete</a>
+                            <td className="action">
+                                <Link to={`/dashboard/edit-resume/${resume.id}`}><i className="fa fa-pencil"></i> Edit</Link>
+                                <a href="#"><i className="fa  fa-eye-slash"></i> Hide</a>
+                                <Link id={resume.id} to="#" className="delete" onClick={this.onClickDelete}><i className="fa fa-remove"></i> Delete</Link>
                             </td>
                         </tr>
                     )
@@ -41,25 +41,25 @@ class ResumesTable extends Component {
 
     renderResumeTable = () => {
         return(
-            <div class="row">
+            <div className="row">
 
                 <div>                    
-                    <div class="col-lg-12 col-md-12">
+                    <div className="col-lg-12 col-md-12">
 
-                        {/* <div class="notification notice">
+                        {/* <div className="notification notice">
                             Your resume can be viewed, edited or removed below.
                         </div> */}
 
-                        <div class="dashboard-list-box margin-top-30">
-                            <div class="dashboard-list-box-content">
+                        <div className="dashboard-list-box margin-top-30">
+                            <div className="dashboard-list-box-content">
 
-                                    <table class="manage-table resumes responsive-table">
+                                    <table className="manage-table resumes responsive-table">
 
                                         <tr>
-                                            <th><i class="fa fa-user"></i> Name</th>
-                                            <th><i class="fa fa-file-text"></i> Title</th>
-                                            <th><i class="fa fa-map-marker"></i> Location</th>
-                                            <th><i class="fa fa-calendar"></i> Date Posted</th>
+                                            <th><i className="fa fa-user"></i> Name</th>
+                                            <th><i className="fa fa-file-text"></i> Title</th>
+                                            <th><i className="fa fa-map-marker"></i> Location</th>
+                                            <th><i className="fa fa-calendar"></i> Date Posted</th>
                                             <th></th>
                                         </tr>
 
@@ -69,11 +69,11 @@ class ResumesTable extends Component {
                                     </table>
                             </div>
                         </div>
-                        <Link to="/dashboard/add-resume" class="button margin-top-30">Add Resume</Link>
+                        <Link to="/dashboard/add-resume" className="button margin-top-30">Add Resume</Link>
 
                     </div>
-                <div class="col-md-12">
-                        <div class="copyrights">© 2019 WorkScout. All Rights Reserved.</div>
+                <div className="col-md-12">
+                        <div className="copyrights">© 2019 WorkScout. All Rights Reserved.</div>
                     </div>
                 </div>
             </div>
