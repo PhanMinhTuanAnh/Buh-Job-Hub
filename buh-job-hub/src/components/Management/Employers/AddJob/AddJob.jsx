@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as actions from './../../../../react-redux/index_actions'
+import { actFetchCompaniesRequest } from './../../../../react-redux/index_actions';
 class AddJob extends Component {
     constructor(props) {
         super(props);
@@ -11,12 +12,37 @@ class AddJob extends Component {
             job_type: 0,
             category: 0,
             location : 0,
+            company: 0,
+            user_id : 0,
+
         }
     }
     componentDidMount() {
         this.props.actFetchJobTypesRequest();
         this.props.actFetchCategoriesRequest();
         this.props.actFetchJobLocationsRequest();
+        this.props.actFetchCompaniesRequest();
+        var { match } = this.props;
+        if (match) {
+            var id = match.params.id;
+            if(id) this.props.actGetJobPostRequest(id);
+        }
+    }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps && nextProps.job_post_edit) {
+            var {job_post_edit} = nextProps;
+            console.log(job_post_edit)
+            this.setState({
+                id: job_post_edit.id,
+                title: job_post_edit.job_description,
+                job_type: job_post_edit.job_type_id,
+                category: job_post_edit.category_id,
+                location: job_post_edit.job_location_id,
+                company: job_post_edit.company_id,
+                user_id : job_post_edit.user_id
+            })
+            console.log(this.state)
+        }
     }
     showJobTypeItem = (job_types) => {
         return (
@@ -45,6 +71,15 @@ class AddJob extends Component {
             })
         )
     }
+    showCompanyItem =(companies) => {
+        return (
+            companies.map((company, index) => {
+                return (
+                    <option key={index} value={company.id}>{company.company_name}</option>
+                )
+            })
+        )
+    }
     onChange = (e) => {
         var target = e.target;
         var name = target.name;
@@ -55,23 +90,45 @@ class AddJob extends Component {
     }
     onAddJob =(e)=>{
         e.preventDefault();
-        var { email, title, job_type, category,location } = this.state
-        var job_post = {
-            job_description: title,
-            categories_id: category,
-            // users_id : email, // user đang đăng nhập vào đây 
-            job_types_id : job_type,
-            job_locations_id : location
+        var {id, title, job_type, category,location,company } = this.state
+        var job_post =null;
+        if(id==0){
+            job_post = {
+                // id:id,
+                job_description: title,
+                categories_id: parseInt(category),
+                users_id : 1, // user đang đăng nhập vào đây 
+                job_types_id : parseInt(job_type),
+                job_locations_id : parseInt(location),
+                companies_id : parseInt(company)
+            }
+        }
+        else{
+            job_post = {
+                id:id,
+                job_description: title,
+                categories_id: parseInt(category),
+                users_id : 1, // user đang đăng nhập vào đây 
+                job_types_id : parseInt(job_type),
+                job_locations_id : parseInt(location),
+                companies_id : parseInt(company)
+            }
         }
         console.log(job_post)
-        this.props.actAddJobPostRequest(job_post)
+        if(id==0){
+            console.log('add')
+            this.props.actAddJobPostRequest(job_post)
+        }else{
+            console.log('update')
+            this.props.actUpdateJobPostRequest(job_post)
+        }
     }
     
     render() {
         let style = {
             width: '100%',
         }
-        var { email, title, job_type, category,location } = this.state
+        var { email, title, job_type, category,location ,company} = this.state
         return (
             <div>
                 <div class="dashboard-content">
@@ -150,9 +207,13 @@ class AddJob extends Component {
 
 
                                         <div class="form">
-                                            <h5>Job Tags <span>(optional)</span></h5>
-                                            <input class="search-field" type="text" placeholder="e.g. PHP, Social Media, Management" value="" />
-                                            <p class="note">Comma separate tags, such as required skills or technologies, for this job.</p>
+                                        <h5>Company</h5>
+                                            <select data-placeholder="Choose Comapany" class="chosen-select-no-single"
+                                                name="company"
+                                                value={company}
+                                                onChange={this.onChange}>
+                                                {this.showCompanyItem(this.props.companies)}
+                                            </select>
                                         </div>
 
 
@@ -242,6 +303,8 @@ const mapStateToProps = (state) => {
         job_types: state.job_types,
         categories: state.categories,
         job_locations : state.job_locations,
+        companies : state.companies,
+        job_post_edit : state.job_post_edit,
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -255,9 +318,21 @@ const mapDispatchToProps = (dispatch) => {
         actAddJobPostRequest: (job_post) => {
             dispatch(actions.actAddJobPostRequest(job_post))
         },
+        actGetJobPostRequest: (id) => {
+            dispatch(actions.actGetJobPostRequest(id))
+        },
+        
         actFetchJobLocationsRequest: (job_locations) => {
             dispatch(actions.actFetchJobLocationsRequest(job_locations))
-        }
+        },
+        actFetchCompaniesRequest: (companies) => {
+            dispatch(actions.actFetchCompaniesRequest(companies))
+        },
+        actUpdateJobPostRequest: (job_post) => {
+            dispatch(actions.actUpdateJobPostRequest(job_post))
+        },
+        
+        
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AddJob);

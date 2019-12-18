@@ -29,7 +29,7 @@ class ManageJobsItem extends Component {
                         <td>{job_post.updated_at}}</td>
                         <td class="centered"><Link to={`/dashboard/manage-jobs/${job_post.id}`} class="button">Show</Link></td>
                         <td class="action">
-                            <a href="#"><i class="fa fa-pencil"></i> Edit</a>
+                            <Link to={`/dashboard/manage-jobs/${job_post.id}/edit`}><i class="fa fa-pencil"></i> Edit</Link>
                             <a href="#"><i class="fa  fa-check "></i> Mark Filled</a>
                             <a href="#" class="delete" onClick={() => this.onDelete(job_post.id)} ><i class="fa fa-remove" ></i> Delete</a>
                         </td>

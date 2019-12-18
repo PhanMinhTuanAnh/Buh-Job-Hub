@@ -44,3 +44,31 @@ export const actDeleteJobPost = (id) => {
         id
     }
 }
+//editing job_post
+export const actGetJobPostRequest = (id) => {
+    return (dispatch) => {
+        return callApi(`job_posts/${id}`, 'GET', null).then(res => {
+            dispatch(actGetJobPost(res.data))
+        });
+    }
+}
+export const actGetJobPost = (job_post) => {
+    return {
+        type: types.EDIT_JOB_POST,
+        job_post
+    }
+}
+//update job_post
+export const actUpdateJobPostRequest = (job_post) => {
+    return (dispatch) => {
+        return callApi(`job_posts/${job_post.id}`, 'PUT', job_post).then(res => {
+            dispatch(actUpdateJobPost(res.data))
+        });
+    }
+}
+export const actUpdateJobPost = (job_post) => {
+    return {
+        type: types.UPDATE_JOB_POST,
+        job_post
+    }
+}
