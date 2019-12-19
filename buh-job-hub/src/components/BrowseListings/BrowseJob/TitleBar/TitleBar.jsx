@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class TitleBar extends Component {
   render() {
@@ -6,11 +7,11 @@ export default class TitleBar extends Component {
       <div id="titlebar">
         <div className="container">
           <div className="ten columns">
-            <span>We found 1,412 jobs matching:</span>
+            <span>We found 20 jobs matching:</span>
             <h2>Web, Software &amp; IT</h2>
           </div>
           <div className="six columns">
-            <a href="dashboard-add-job.html" className="button">Post a Job, It’s Free!</a>
+            <Link to="/dashboard/add-job" className="button">Post a Job, It’s Free!</Link>
           </div>
         </div>
       </div>

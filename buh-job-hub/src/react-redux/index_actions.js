@@ -1,6 +1,7 @@
 export * from './Job_post/job_posts_actions'
 export * from './Job_post_activities/job_post_activities_actions'
 export * from './Job_type/job_types_actions'
+export * from './Job_page/job_page_actions'
 export * from './Categories/categories_actions'
 export * from './Job_location/job_locations_actions'
 export * from './Company/companies_actions'

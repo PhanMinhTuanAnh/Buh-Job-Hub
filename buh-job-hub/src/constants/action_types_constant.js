@@ -4,6 +4,7 @@ export *  from './Job_type/job_type_constant'
 export *  from './Categories/categories_constant'
 export *  from './Job_location/job_location_constant'
 export *  from './Company/company_constant'
+export *  from './Job_page/job_page_constant'
 export *  from './candidates/resumes_constants'
 
 // export * from './Profile/profile_constant'
