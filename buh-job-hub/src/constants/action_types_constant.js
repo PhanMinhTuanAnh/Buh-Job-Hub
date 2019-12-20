@@ -6,5 +6,5 @@ export *  from './Job_location/job_location_constant'
 export *  from './Company/company_constant'
 export *  from './Job_page/job_page_constant'
 export *  from './candidates/resumes_constants'
-
+export * from './BrowseJob/browse_job_constant'
 // export * from './Profile/profile_constant'

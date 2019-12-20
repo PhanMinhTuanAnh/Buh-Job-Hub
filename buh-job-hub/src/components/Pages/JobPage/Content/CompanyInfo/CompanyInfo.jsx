@@ -6,7 +6,7 @@ class CompanyInfo extends Component {
         return (
             <>
                 <div className="company-info">
-                    <img src= {job_page.company? job_page.company.image[0].company_image : ""} alt="" />
+                    <img src= {job_page.company ? (job_page.company.image[0]?job_page.company.image[0].company_image : "https://cdn2.iconfinder.com/data/icons/flat-business-icon/600/shares-company-finance-512.png") : "https://cdn2.iconfinder.com/data/icons/flat-business-icon/600/shares-company-finance-512.png"} alt="" />
                     <div className="content">
                         <h4>{job_page.company? job_page.company.company.company_name : ""}</h4>
                         <span><a href="#"><i className="fa fa-link" /> Website</a></span>

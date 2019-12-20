@@ -9,13 +9,6 @@ export default class ListingJob extends Component {
               <div className="padding-right">
                 <div className="listings-container">
                   <ListJob_Item/>
-                  <ListJob_Item/>
-                  <ListJob_Item/>
-                  <ListJob_Item/>
-                  <ListJob_Item/>
-                  <ListJob_Item/>
-                  <ListJob_Item/>
-                  <ListJob_Item/>
                 </div>
                 <div className="clearfix" />
                 <PagingJob/>
