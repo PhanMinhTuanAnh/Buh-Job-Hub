@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-
-export default class CompanyInfo extends Component {
+import { connect } from 'react-redux'
+class CompanyInfo extends Component {
     render() {
+        var {job_page} = this.props
         return (
             <>
                 <div className="company-info">
-                    <img src={require('./../../../.../../../../assets/images/company-logo.png')} alt="" />
+                    <img src= {job_page.company? job_page.company.image[0].company_image : ""} alt="" />
                     <div className="content">
-                        <h4>King LLC</h4>
+                        <h4>{job_page.company? job_page.company.company.company_name : ""}</h4>
                         <span><a href="#"><i className="fa fa-link" /> Website</a></span>
                         <span><a href="#"><i className="fa fa-twitter" /> @kingrestaurants</a></span>
                     </div>
@@ -32,3 +33,10 @@ export default class CompanyInfo extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+      job_page: state.job_page,
+    }
+  }
+  export default connect(mapStateToProps, null)(CompanyInfo);
+

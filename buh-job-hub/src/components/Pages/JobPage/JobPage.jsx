@@ -5,23 +5,27 @@ import { connect } from 'react-redux'
 import * as actions from './../../../react-redux/index_actions'
 import { Link } from 'react-router-dom';
 class JobPage extends Component {
-  componentDidMount() {
+  async componentDidMount() {
     var { match } = this.props;
     if (match) {
       var id = match.params.id;
-      this.props.actFetchJobPageRequest(id)
+      await this.props.actFetchJobPageRequest(id)
     }
     
   }
+  // ads = async ()=> {
+
+  // }
   render() {
+    console.log(this.props.job_page)
     return (
       <div>
         <div className="clearfix" />
         {/* Titlebar */}
-        <TitleBar job_page = {this.props.job_page}/>
+        <TitleBar/>
         <div className="container">
           {/* Content*/}
-          <Content job_page = {this.props.job_page} />
+          <Content />
         </div>
       </div>
     );

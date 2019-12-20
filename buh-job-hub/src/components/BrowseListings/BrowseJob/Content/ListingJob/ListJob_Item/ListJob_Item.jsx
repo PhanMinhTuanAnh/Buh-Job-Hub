@@ -4,7 +4,6 @@ import * as actions from './../../../../../../react-redux/index_actions';
 import { Link } from 'react-router-dom';
 class ListJob_Item extends Component {
     componentDidMount() {
-        console.log("first")
         this.props.actFetchJobPostsRequest();
     }
     constructor(props) {
@@ -16,9 +15,9 @@ class ListJob_Item extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps && nextProps.job_posts) {
             var {job_posts} = nextProps;
-            this.state = {
+            this.setState ( {
                 jobs: job_posts
-            }
+            })
         }
     }
     showBrowesJob = (jobs) => {
