@@ -17,7 +17,6 @@ class JobPage extends Component {
 
   // }
   render() {
-    console.log(this.props.job_page)
     return (
       <div>
         <div className="clearfix" />

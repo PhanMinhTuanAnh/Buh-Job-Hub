@@ -20,10 +20,10 @@ class TitleBar extends Component {
         
     }
     showCss=(str)=>{
-        if(str = 'Freelance') return 'freelance'
-        else if(str = 'Full-time') return 'full-time'
-        else if(str = 'Part-time') return 'part-time'
-        else if(str = 'Internship') return 'internship'
+        if(str == 'Freelance') return 'freelance'
+        else if(str == 'Full-time') return 'full-time'
+        else if(str == 'Part-time') return 'part-time'
+        else if(str == 'Internship') return 'internship'
         else return 'temporary'
     }
 }

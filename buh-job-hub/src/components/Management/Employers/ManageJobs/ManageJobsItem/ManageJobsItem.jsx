@@ -14,7 +14,7 @@ class ManageJobsItem extends Component {
         )
     }
     onDelete = (id) => {
-        if (confirm('You sure delete this product ? ')) {// eslint-disable-line
+        if (confirm('You sure delete this job ? ')) {// eslint-disable-line
             this.props.actDeleteJobPostRequest(id);
         }
     }
@@ -25,8 +25,8 @@ class ManageJobsItem extends Component {
                     <tr key={index}>
                         <td class="title"><a href="#">{job_post.job_description}</a></td>
                         <td class="centered">-</td>
-                        <td>{job_post.created_at}</td>
-                        <td>{job_post.updated_at}}</td>
+                        <td>{job_post.created_at_convert}</td>
+                        <td>{job_post.updated_at_convert}</td>
                         <td class="centered"><Link to={`/dashboard/manage-jobs/${job_post.id}`} class="button">Show</Link></td>
                         <td class="action">
                             <Link to={`/dashboard/manage-jobs/${job_post.id}/edit`}><i class="fa fa-pencil"></i> Edit</Link>
