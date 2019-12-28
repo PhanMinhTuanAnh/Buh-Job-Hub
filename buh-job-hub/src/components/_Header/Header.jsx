@@ -1,15 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Link, NavLink} from 'react-router-dom'
+import {Link, NavLink,withRouter } from 'react-router-dom'
 import {logoutUser} from '../../react-redux/Account(Ex)/account_actions'
 class Header extends React.Component {
-
     handleClick = event => {
         event.preventDefault();
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
         this.props.logoutUser();
+        this.props.history.push('/');
     }
     render() {
+        console.log("props",this.props)
         let style = {
             background : "#202020",
             borderRadius : "3px"
@@ -26,10 +28,16 @@ class Header extends React.Component {
                                 <ul id="responsive">
                                     <li><NavLink to="/browse-jobs" activeClassName="selected">Jobs</NavLink></li>
                                     <li><Link to="browse-resumes">Resumes</Link></li>
-                                    <li><Link to="/dashboard">Dashboard</Link></li>
+                                    {localStorage.getItem("token")
+                                            ?
+                                            <>
+                                            <li><Link to="/dashboard">Dashboard</Link></li>
+                                            </>
+                                            : null                          
+                                    }
                                 </ul>
                                 <ul className="float-right">
-                                    {!localStorage.getItem("token") && 
+                                    {!localStorage.getItem("token")&&
                                     <>
                                     
                                     <li><Link to="/signup"><i className="fa fa-user" /> Sign Up</Link></li>
@@ -42,8 +50,7 @@ class Header extends React.Component {
                                             <>
                                             <button onClick={this.handleClick}>Log Out</button>
                                             </>
-                                            : null
-                            
+                                            : null                           
                                     }
                                 </ul>
                             </nav>
@@ -59,10 +66,11 @@ class Header extends React.Component {
     
 }
 const mapStateToProps = state => ({
-    currentUser: state.login_reducer.currentUser
-  })
+    currentUser: state.login_reducer.currentUser 
+  }
+  )
 const mapDispatchToProps = dispatch => ({
     //getProfileFetch: () => dispatch(getProfileFetch()),
     logoutUser: () => dispatch(logoutUser())
   })
-  export default connect(mapStateToProps, mapDispatchToProps)(Header); 
+  export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Header)); 

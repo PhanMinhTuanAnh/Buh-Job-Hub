@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route,Router } from 'react-router-dom';
+import { Switch, Route,Router, Redirect} from 'react-router-dom';
 import Home from '../Home/Home';
 import JobPage from '../Pages/JobPage/JobPage';
 import ResumePage from '../Pages/ResumePage/ResumePage';
@@ -9,6 +9,18 @@ import BrowseJob from '../BrowseListings/BrowseJob/BrowseJob';
 import BrowseResumes from '../BrowseListings/BrowseResumes/BrowseResumes';
 import BrowseCategories from '../BrowseListings/BrowseCategories/BrowseCategories';
 import DashboardRoutes from './_DashboardRoutes/DashboardRoutes';
+
+
+const PrivateRoute = ({ component: Component, ...rest }) => {
+    
+    return (
+        <Route {...rest} render={(props) => (
+      localStorage.getItem('token')
+        ? <Component {...props} />
+        : <Redirect to='/signin' />
+    )} />
+  )
+    }
 export default class Main extends Component {
     render() {
         return (
@@ -24,9 +36,12 @@ export default class Main extends Component {
                 <Route path="/browse-jobs/:id" component={({match})=> <JobPage match = {match}/>} />
                 <Route exact path='/browse-resumes' component={BrowseResumes}/>
                 <Route path='/browse-categories' component={BrowseCategories}/>
-                <Route path='/dashboard' component={DashboardRoutes}/>
-
-            </Switch> 
-        )
+                <PrivateRoute path='/dashboard' component={DashboardRoutes}/>
+                </Switch> 
+            )
+        
     }
 }
+const mapStateToProps = state => ({
+    currentUser: state.login_reducer.currentUser 
+  })

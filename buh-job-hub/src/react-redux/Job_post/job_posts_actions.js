@@ -18,6 +18,7 @@ export const actJobPosts = (job_posts) => {
 export const actAddJobPostRequest = (job_post) => {
     return (dispatch) => {
         return callApi('job_posts/', 'POST', job_post).then(res => {
+            // console.log(res)
             dispatch(actAddJobPost(res.data))
         });
     }

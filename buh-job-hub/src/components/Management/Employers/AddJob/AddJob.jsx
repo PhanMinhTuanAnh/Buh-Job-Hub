@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import * as actions from './../../../../react-redux/index_actions'
-import { actFetchCompaniesRequest } from './../../../../react-redux/index_actions';
 class AddJob extends Component {
     constructor(props) {
         super(props);
@@ -96,22 +95,22 @@ class AddJob extends Component {
             job_post = {
                 // id:id,
                 job_description: title,
-                categories_id: parseInt(category),
-                users_id : 1, // user đang đăng nhập vào đây 
-                job_types_id : parseInt(job_type),
-                job_locations_id : parseInt(location),
-                companies_id : parseInt(company)
+                category_id: parseInt(category),
+                user_id : 1, // user đang đăng nhập vào đây 
+                job_type_id : parseInt(job_type),
+                job_location_id : parseInt(location),
+                company_id : parseInt(company)
             }
         }
         else{
             job_post = {
                 id:id,
                 job_description: title,
-                categories_id: parseInt(category),
-                users_id : 1, // user đang đăng nhập vào đây 
-                job_types_id : parseInt(job_type),
-                job_locations_id : parseInt(location),
-                companies_id : parseInt(company)
+                category_id: parseInt(category),
+                user_id : 1, // user đang đăng nhập vào đây 
+                job_type_id : parseInt(job_type),
+                job_location_id : parseInt(location),
+                company_id : parseInt(company)
             }
         }
         console.log(job_post)
