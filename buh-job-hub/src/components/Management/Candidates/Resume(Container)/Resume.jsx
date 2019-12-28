@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
-
+import './Resume.css'
 
 class AddResume extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            intype: false,
+            educations: [],
+            experiences: [],
+        }
+    }
+
+
 
     titlebar = () => {
         return(
@@ -64,8 +75,8 @@ class AddResume extends Component {
                         <h5>Your Name</h5>
                         <input class="search-field" type="text" 
                             placeholder={resume.user_name == null ? "Your full name" : ""}
-                            value={resume.user_name == null ? "" : resume.user_name}
-                            style = {resume.user_name == null ? {} : styleText}
+                            defaultdefaultValue={resume.user_name == null ? "" : resume.user_name}
+                            style = {styleText}
                         />
                     </div>
 
@@ -73,8 +84,8 @@ class AddResume extends Component {
                         <h5>Your Email</h5>
                         <input class="search-field" type="text" 
                             placeholder={resume.user_email == null ? "mail@example.com" : ""} 
-                            value={resume.user_email == null ? "" : resume.user_email}
-                            style = {resume.user_email == null ? {} : styleText}
+                            defaultValue={resume.user_email == null ? "" : resume.user_email}
+                            style = {styleText}
                         />
                     </div>
 
@@ -82,8 +93,8 @@ class AddResume extends Component {
                         <h5>Professional Title</h5>
                         <input class="search-field" type="text" 
                             placeholder={resume.title == null ? "e.g. Web Developer" : ""} 
-                            value={resume.title == null ? "" : resume.title}
-                            style = {resume.title == null ? {} : styleText}
+                            defaultValue={resume.title == null ? "" : resume.title}
+                            style = {styleText}
                         />
                     </div>
 
@@ -91,8 +102,8 @@ class AddResume extends Component {
                         <h5>Location</h5>
                         <input class="search-field" type="text" 
                             placeholder={resume.location == null ? "e.g. London, UK" : ""} 
-                            value={resume.location == null ? "" : resume.location}
-                            style = {resume.location == null ? {} : styleText}
+                            defaultValue={resume.location == null ? "" : resume.location}
+                            style = {styleText}
                         />
                     </div>
 
@@ -107,12 +118,12 @@ class AddResume extends Component {
 
                     <div class="form">
                         <h5>Video <span>(optional)</span></h5>
-                        <input class="search-field" type="text" placeholder="A link to a video about you" value=""/>
+                        <input class="search-field" type="text" placeholder="A link to a video about you" defaultValue=""/>
                     </div>
 
                     <div class="form" style={style}>
                         <h5>Resume Content</h5>
-                        <textarea class="WYSIWYG" name="summary" cols="40" rows="3" id="summary" spellcheck="true"></textarea>
+                        <textarea class="WYSIWYG" name="summary" cols="40" rows="3" id="summary" spellcheck="true" style = {styleText}></textarea>
                     </div>
 
                 </div>
@@ -122,47 +133,145 @@ class AddResume extends Component {
         )
     }
 
+    onClickDeleteEducation = (e) => {
+        let temp = this.state.educations;
+        temp.splice(e.target.id, 1);
+        this.setState({
+            educations : temp,
+        });
+    }
+
+    renderEducation = (education, key) => {
+        let styleText = {
+            color: "black"
+        }
+        let styleButton = {
+            position: "absolute",
+            top: "0",
+            right: "0",
+            zIndex: "9",
+            lineHeight: "32px",
+            width: "32px",
+            textAlign: "center",
+            padding: "0",
+            borderRadius: "3px",
+            transition: ".2s"
+        }
+        return(
+            
+            <div class="form-inside">
+
+                <div class="form boxed box-to-clone education-box">
+                    <i id={key}  class="fa fa-close remove" style = {styleButton} onClick = {this.onClickDeleteEducation}></i>
+                    <input class="search-field" type="text" placeholder="School Name" defaultValue="" style = {styleText} />
+                    <input class="search-field" type="text" placeholder="Qualification(s)" defaultValue="" style = {styleText}/>
+                    <input class="search-field" type="text" placeholder="Start / end date" defaultValue="" style = {styleText}/>
+                    <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Notes (optional)" style = {styleText}></textarea>
+                </div>
+
+            </div>
+        )
+    }
+
+    onClickAddEducationAction = () => {
+        this.setState({
+            educations : [1,...this.state.educations]
+        })
+    }
+
     education = () =>{
         
+        let styleButton = {
+            marginTop : "10px",
+            padding: "10px 20px",
+            borderRadius: "3px",
+            lineHeight: "27px"
+        }
+
         return(
             <div class="dashboard-list-box margin-top-30">
                 <h4>Education</h4>
                 <div class="dashboard-list-box-content with-padding">
+                    {this.state.educations && this.state.educations.map((education, key) => {
+                            return(this.renderEducation(education, key))
+                    })}
 
-                    <div class="form-inside">
-
-                        <div class="form boxed box-to-clone education-box">
-                            <a href="#" class="close-form remove-box button"><i class="fa fa-close"></i></a>
-                            <input class="search-field" type="text" placeholder="School Name" value=""/>
-                            <input class="search-field" type="text" placeholder="Qualification(s)" value=""/>
-                            <input class="search-field" type="text" placeholder="Start / end date" value=""/>
-                            <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Notes (optional)"></textarea>
-                        </div>
-
-                        <a href="#" class="button gray add-education add-box margin-top-10"><i class="fa fa-plus-circle"></i> Add Education</a>
-                    </div>
-
+                    <button onClick = {this.onClickAddEducationAction} style = {styleButton}><i class="fa fa-plus-circle"></i> Add Education</button>   
                 </div>
             </div>
         )
-    } 
+    }
+
+    //////////////////////////////////////////////////////////
+    /* EXPERIECE */
+    //////////////////////////////////////////////////////////
+
+    onClickDeleteExperience = (e) => {
+        let temp = this.state.experiences;
+        temp.splice(e.target.id, 1);
+        this.setState({
+            experiences : temp,
+        });
+    }
+
+    renderExperience = (experience, key) => {
+        let styleText = {
+            color: "black"
+        }
+        let styleButton = {
+            position: "absolute",
+            top: "0",
+            right: "0",
+            zIndex: "9",
+            lineHeight: "32px",
+            width: "32px",
+            textAlign: "center",
+            padding: "0",
+            borderRadius: "3px",
+            transition: ".2s"
+        }
+        return(
+            
+            <div class="form-inside">
+
+                <div class="form boxed box-to-clone experience-box">
+                    <i id={key}  class="fa fa-close remove" style = {styleButton} onClick = {this.onClickDeleteExperience}></i>
+                    <input class="search-field" type="text" placeholder="Employer" defaultValue="" style = {styleText}/>
+                    <input class="search-field" type="text" placeholder="Job Title" defaultValue="" style = {styleText}/>
+                    <input class="search-field" type="text" placeholder="Start / end date" defaultValue="" style = {styleText}/>
+                    <textarea name="desc1" id="desc1" cols="30" rows="10" placeholder="Notes (optional)" style = {styleText}></textarea>
+                </div>
+
+            </div>
+        )
+    }
+
+    onClickAddExperienceAction = () =>{
+        this.setState({
+            experiences : [1,...this.state.experiences]
+        })
+
+    }
 
     experience = () => {
+        let styleButton = {
+            marginTop : "10px",
+            padding: "10px 20px",
+            borderRadius: "3px",
+            lineHeight: "27px"
+        }
+
         return(
             <div class="dashboard-list-box margin-top-30">
                 <h4>Experience</h4>
                 <div class="dashboard-list-box-content with-padding">
                 <div class="form-inside">
 
-                <div class="form boxed box-to-clone experience-box">
-                    <a href="#" class="close-form remove-box button"><i class="fa fa-close"></i></a>
-                    <input class="search-field" type="text" placeholder="Employer" value=""/>
-                    <input class="search-field" type="text" placeholder="Job Title" value=""/>
-                    <input class="search-field" type="text" placeholder="Start / end date" value=""/>
-                    <textarea name="desc1" id="desc1" cols="30" rows="10" placeholder="Notes (optional)"></textarea>
-                </div>
+                    {this.state.experiences && this.state.experiences.map((experience, key) => {
+                            return(this.renderExperience(experience, key))
+                    })}
 
-                <a href="#" class="button gray add-experience add-box margin-top-10"><i class="fa fa-plus-circle"></i> Add Experience</a>
+                    <button onClick = {this.onClickAddExperienceAction} style = {styleButton}><i class="fa fa-plus-circle"></i> Add Experience</button>   
                 </div>
 
 
