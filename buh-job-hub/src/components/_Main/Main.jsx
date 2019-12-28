@@ -22,22 +22,21 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   )
     }
 export default class Main extends Component {
-
-    
-    render() {  
-
-        {
-            return (
-                <Switch>
-                    <Route exact path='/' component={Home}/>
-                    <Route path='/job-page' component={JobPage}/>
-                    {/* <Route path='/account' component={SignInSignUp}/> */}
-                    <Route path='/signup' component={()=><SignInSignUp type_id = "1"/>}/>
-                    <Route path='/signin' component={()=><SignInSignUp type_id = "2"/>}/>
-                    <Route path='/contact-page' component={Contact}/>
-                    <Route path='/browse-jobs' component={BrowseJob}/>
-                    <Route path='/browse-categories' component={BrowseCategories}/>    
-                    <PrivateRoute path='/dashboard' component={DashboardRoutes}/>
+    render() {
+        return (
+            <Switch>
+                <Route exact path='/' component={Home}/>
+                <Route path='/job-page' component={JobPage}/>
+                {/* <Route path='/account' component={SignInSignUp}/> */}
+                <Route path='/signup' component={()=><SignInSignUp type_id = "1"/>}/>
+                <Route path='/signin' component={()=><SignInSignUp type_id = "2"/>}/>
+                <Route path='/resume-page' component={ResumePage}/>
+                <Route path='/contact-page' component={Contact}/>
+                <Route exact path='/browse-jobs' component={BrowseJob}/>
+                <Route path="/browse-jobs/:id" component={({match})=> <JobPage match = {match}/>} />
+                <Route path='/browse-resumes' component={BrowseResumes}/>
+                <Route path='/browse-categories' component={BrowseCategories}/>
+                <PrivateRoute path='/dashboard' component={DashboardRoutes}/>
                 </Switch> 
             )
         }

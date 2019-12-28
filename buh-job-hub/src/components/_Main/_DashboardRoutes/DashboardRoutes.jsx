@@ -54,6 +54,7 @@ export default class DashboardRoutes extends Component {
                     <EmployerRoute exact path='/dashboard/manage-jobs' component={ManageJobs}/>
                     {/* <Route path='/dashboard/manage-applications' component={ManageApplications}/> */}
                     <EmployerRoute path="/dashboard/manage-jobs/:id" component={({match})=> <ManageApplications match = {match}/>} />
+                    <EmployerRoute path="/dashboard/manage-jobs/:id/edit" component={({match})=> <AddJob match = {match}/>} />
                     <EmployerRoute path='/dashboard/add-job' component={AddJob}/>
                     <CandidateRoute path='/dashboard/manage-resumes' component={ManageResumes}/>
                     <CandidateRoute path='/dashboard/job-alerts' component={JobAlerts}/>

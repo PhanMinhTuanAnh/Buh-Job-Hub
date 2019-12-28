@@ -23,6 +23,10 @@ var appReducer = (state = initialState, action) => {
             index = findIndex(state, id);
             state.splice(index, 1);
             return [...state];
+        case types.UPDATE_JOB_POST:
+            index = findIndex(state, job_post.id)
+            state[index] = job_post;
+            return [...state];
         default: return state;
     }
 };

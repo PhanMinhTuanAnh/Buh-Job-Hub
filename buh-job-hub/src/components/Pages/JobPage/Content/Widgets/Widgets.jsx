@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-
-export default class Widgets extends Component {
+import { connect } from 'react-redux'
+class Widgets extends Component {
     render() {
+        var {job_page} = this.props
         return (
             <div className="five columns">
                 {/* Sort by */}
@@ -13,14 +14,20 @@ export default class Widgets extends Component {
                                 <i className="fa fa-map-marker" />
                                 <div>
                                     <strong>Location:</strong>
-                                    <span>20180 Outer Dr Dearborn, MI 48124</span>
+                                    <span>{
+                                        job_page.location?`
+                                    ${job_page.location.street_address},
+                                    ${job_page.location.city},
+                                    ${job_page.location.country},
+                                    `:""
+                                    }</span>
                                 </div>
                             </li>
                             <li>
                                 <i className="fa fa-user" />
                                 <div>
                                     <strong>Job Title:</strong>
-                                    <span>Food Service Specialist</span>
+                                    <span>{job_page.job_description?job_page.job_description.job_description:""}</span>
                                 </div>
                             </li>
                             <li>
@@ -67,3 +74,9 @@ export default class Widgets extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+      job_page: state.job_page,
+    }
+  }
+  export default connect(mapStateToProps, null)(Widgets);
