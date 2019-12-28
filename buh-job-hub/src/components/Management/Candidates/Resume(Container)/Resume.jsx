@@ -107,7 +107,7 @@ class AddResume extends Component {
                         />
                     </div>
 
-                    <div class="form">
+                    {/* <div class="form">
                         <h5>Photo <span>(optional)</span></h5>
                         <label class="upload-btn">
                             <input type="file" multiple />
@@ -119,7 +119,7 @@ class AddResume extends Component {
                     <div class="form">
                         <h5>Video <span>(optional)</span></h5>
                         <input class="search-field" type="text" placeholder="A link to a video about you" defaultValue=""/>
-                    </div>
+                    </div> */}
 
                     <div class="form" style={style}>
                         <h5>Resume Content</h5>
@@ -133,11 +133,23 @@ class AddResume extends Component {
         )
     }
 
+    //////////////////////////////////////////////////////////
+    /* EDUCATION */
+    //////////////////////////////////////////////////////////
+
     onClickDeleteEducation = (e) => {
         let temp = this.state.educations;
         temp.splice(e.target.id, 1);
         this.setState({
             educations : temp,
+        });
+    }
+    onChangeEducation = (e) => {
+        let temp = this.state.educations;
+        temp[e.target.id][e.target.name] = e.target.value;
+        console.log(temp[e.target.id]);
+        this.setState({
+            educations : temp
         });
     }
 
@@ -163,10 +175,46 @@ class AddResume extends Component {
 
                 <div class="form boxed box-to-clone education-box">
                     <i id={key}  class="fa fa-close remove" style = {styleButton} onClick = {this.onClickDeleteEducation}></i>
-                    <input class="search-field" type="text" placeholder="School Name" defaultValue="" style = {styleText} />
-                    <input class="search-field" type="text" placeholder="Qualification(s)" defaultValue="" style = {styleText}/>
-                    <input class="search-field" type="text" placeholder="Start / end date" defaultValue="" style = {styleText}/>
-                    <textarea name="desc" id="desc" cols="30" rows="10" placeholder="Notes (optional)" style = {styleText}></textarea>
+                    <input id={key}
+                        name= "instituteOrSchool" 
+                        class="search-field" 
+                        type="text" 
+                        placeholder={education.instituteOrSchool == "" && "School Name"} 
+                        value={education.instituteOrSchool} 
+                        style = {styleText}
+                        onChange = {this.onChangeEducation}
+                    />
+                    <input id={key}
+                        name= "certificateOrDegree" 
+                        input={1}
+                        class="search-field" 
+                        type="text" 
+                        placeholder={education.certificateOrDegree == "" && "Qualification(s)"} 
+                        value={education.certificateOrDegree} 
+                        style = {styleText}
+                        onChange = {this.onChangeEducation}    
+                    />
+                    <input id={key} 
+                        name= "startAndEnd" 
+                        class="search-field" 
+                        type="text" 
+                        placeholder={education.startAndEnd == "" && "Start / end date"} 
+                        value={education.startAndEnd} 
+                        style = {styleText}
+                        onChange = {this.onChangeEducation}
+
+                    />
+                    <textarea 
+                        name="description" 
+                        id={key} 
+                        cols="30" rows="10" 
+                        placeholder="Notes (optional)" 
+                        style = {styleText}
+                        value = {education.description}
+                        onChange = {this.onChangeEducation}
+                        >
+                    </textarea>
+
                 </div>
 
             </div>
@@ -174,8 +222,14 @@ class AddResume extends Component {
     }
 
     onClickAddEducationAction = () => {
+        let education = {
+            instituteOrSchool: "",
+            certificateOrDegree: "",
+            startAndEnd: "",
+            description: "",
+        }
         this.setState({
-            educations : [1,...this.state.educations]
+            educations : [...this.state.educations,education]
         })
     }
 
@@ -193,6 +247,8 @@ class AddResume extends Component {
                 <h4>Education</h4>
                 <div class="dashboard-list-box-content with-padding">
                     {this.state.educations && this.state.educations.map((education, key) => {
+                            console.log(key)
+                            console.log(education);
                             return(this.renderEducation(education, key))
                     })}
 
@@ -211,6 +267,14 @@ class AddResume extends Component {
         temp.splice(e.target.id, 1);
         this.setState({
             experiences : temp,
+        });
+    }
+    onChangeExperience = (e) => {
+        let temp = this.state.experiences;
+        temp[e.target.id][e.target.name] = e.target.value;
+        console.log(temp[e.target.id]);
+        this.setState({
+            experiences : temp
         });
     }
 
@@ -236,10 +300,42 @@ class AddResume extends Component {
 
                 <div class="form boxed box-to-clone experience-box">
                     <i id={key}  class="fa fa-close remove" style = {styleButton} onClick = {this.onClickDeleteExperience}></i>
-                    <input class="search-field" type="text" placeholder="Employer" defaultValue="" style = {styleText}/>
-                    <input class="search-field" type="text" placeholder="Job Title" defaultValue="" style = {styleText}/>
-                    <input class="search-field" type="text" placeholder="Start / end date" defaultValue="" style = {styleText}/>
-                    <textarea name="desc1" id="desc1" cols="30" rows="10" placeholder="Notes (optional)" style = {styleText}></textarea>
+                    <input id={key}
+                        name="employer" 
+                        class="search-field" 
+                        type="text" 
+                        placeholder="Employer" 
+                        value={experience.employer} 
+                        style = {styleText}
+                        onChange={this.onChangeExperience}    
+                    />
+                    <input id={key} 
+                        name="jobTitle"
+                        class="search-field" 
+                        type="text" 
+                        placeholder="Job Title" 
+                        value={experience.jobTitle} 
+                        style = {styleText}
+                        onChange={this.onChangeExperience}    
+                    />
+                    <input id={key} 
+                        name="startAndEnd"
+                        class="search-field" 
+                        type="text" 
+                        placeholder="Start / end date" 
+                        value={experience.startAndEnd} 
+                        style = {styleText}
+                        onChange={this.onChangeExperience}    
+                    />
+                    <textarea id={key} 
+                        name="description" 
+                        cols="30" rows="10" 
+                        placeholder="Notes (optional)" 
+                        style = {styleText}
+                        value={experience.description}
+                        onChange={this.onChangeExperience}    
+                        >
+                    </textarea>
                 </div>
 
             </div>
@@ -247,8 +343,14 @@ class AddResume extends Component {
     }
 
     onClickAddExperienceAction = () =>{
+        let experience = {
+            employer: "",
+            jobTitle: "",
+            startAndEnd: "",
+            description: "",
+        }
         this.setState({
-            experiences : [1,...this.state.experiences]
+            experiences : [...this.state.experiences,experience]
         })
 
     }
@@ -268,7 +370,7 @@ class AddResume extends Component {
                 <div class="form-inside">
 
                     {this.state.experiences && this.state.experiences.map((experience, key) => {
-                            return(this.renderExperience(experience, key))
+                        return(this.renderExperience(experience, key))
                     })}
 
                     <button onClick = {this.onClickAddExperienceAction} style = {styleButton}><i class="fa fa-plus-circle"></i> Add Experience</button>   
