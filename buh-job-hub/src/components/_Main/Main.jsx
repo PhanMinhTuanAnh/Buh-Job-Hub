@@ -39,7 +39,6 @@ export default class Main extends Component {
                 <PrivateRoute path='/dashboard' component={DashboardRoutes}/>
                 </Switch> 
             )
-        }
         
     }
 }
