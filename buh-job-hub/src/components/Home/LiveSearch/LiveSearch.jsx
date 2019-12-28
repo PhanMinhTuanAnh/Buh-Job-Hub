@@ -90,8 +90,9 @@ class LiveSearch extends Component {
 
                 <h2>Find Job</h2>
                 <div className="browse-jobs">
-                    Browse job offers by <a href="browse-categories.html"> category</a> or <a href="#">location</a>
+                    Browse job offers by <Link to="/browse-categories"> category</Link> or <a href="#">location</a>
                 </div>
+                <br/>
                 <input type="text"
                     className="ico-01"
                     placeholder="job title, keywords or company name"
@@ -101,9 +102,6 @@ class LiveSearch extends Component {
                 <input type="text" className="ico-02" placeholder="city, province or region" value="" />
                 <Link to="#"><button><i className="fa fa-search"></i></button></Link>
                 {this.renderSearchResults()}
-
-                
-
             </div>
         )
     }
