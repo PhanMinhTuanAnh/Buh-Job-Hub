@@ -16,7 +16,7 @@ class Login extends Component {
         
         event.preventDefault()
         this.props.userLoginFetch(this.state).then(() => {
-            console.log("State", this.state)
+            //console.log("State", this.state)
             this.props.history.push('/')});
     }
     render() {
