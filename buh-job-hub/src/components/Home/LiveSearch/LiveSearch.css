@@ -1,0 +1,16 @@
+.Search a:hover{
+    text-decoration: none;
+    color: blue;
+}
+.Search a{
+    text-decoration: none;
+    color: wheat;
+    display: block;
+}
+ul.uList{
+    list-style-type: none;
+}
+.Search {
+    position: absolute;
+    z-index: 1;
+}

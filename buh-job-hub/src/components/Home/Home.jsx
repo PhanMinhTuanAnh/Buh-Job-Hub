@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import LiveSearch from './LiveSearch/LiveSearch';
 
 export default class Home extends Component {
     render() {
@@ -12,19 +13,8 @@ export default class Home extends Component {
                     <div className="container">
                         <div className="sixteen columns">
                             
-                            <div className="search-container">
-
-                                <h2>Find Job</h2>
-                                <input type="text" className="ico-01" placeholder="job title, keywords or company name" value=""/>
-                                <input type="text" className="ico-02" placeholder="city, province or region" value=""/>
-                                <Link to ="#"><button><i className="fa fa-search"></i></button></Link>
-
-                                <div className="browse-jobs">
-                                    Browse job offers by <a href="browse-categories.html"> category</a> or <a href="#">location</a>
-                                </div>    
-
-                            </div>
-
+                            <LiveSearch/>
+                            
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ class ListJob_Item extends Component {
                 // console.log(job.company.image[0])
                 return (
                     
-                    <Link key={index} to={`/browse-jobs/${job.job_description.id}`} className={`listing ${this.showCssType(job.type.job_type)}`}>
+                    <Link key={index} to={`/browse-jobs/${job.job_description.id}`} className={`listing ${job.type.job_type? this.showCssType(job.type.job_type): ""}`}>
                         <div className="listing-logo">
                             <img src={job.company.image[0] ? job.company.image[0].company_image : "https://cdn2.iconfinder.com/data/icons/flat-business-icon/600/shares-company-finance-512.png"} alt="" />
                         </div>
@@ -38,11 +38,10 @@ class ListJob_Item extends Component {
         );
     }
     showCssType=(str)=>{
-        console.log(str)
-        if(str = 'Freelance') return 'freelance'
-        else if(str = 'Full-time') return 'full-time'
-        else if(str = 'Part-time') return 'part-time'
-        else if(str = 'Internship') return 'internship'
+        if(str == 'Freelance') return 'freelance'
+        else if(str == 'Full-time') return 'full-time'
+        else if(str == 'Part-time') return 'part-time'
+        else if(str == 'Internship') return 'internship'
         else return 'temporary'
     }
 }
