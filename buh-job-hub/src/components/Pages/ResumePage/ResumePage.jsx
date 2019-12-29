@@ -6,7 +6,7 @@ export default class ResumePage extends Component {
     return (
       <div>
         <div className="clearfix" />
-        <TitleBar />
+        <TitleBar id = {this.props.match.params.id}/>
         <Content />
       </div>
     );

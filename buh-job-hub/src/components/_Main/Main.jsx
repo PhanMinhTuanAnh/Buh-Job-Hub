@@ -35,6 +35,7 @@ export default class Main extends Component {
                 <Route exact path='/browse-jobs' component={BrowseJob}/>
                 <Route path="/browse-jobs/:id" component={({match})=> <JobPage match = {match}/>} />
                 <Route exact path='/browse-resumes' component={BrowseResumes}/>
+                <Route path="/browse-resumes/:id" component={({match})=> <ResumePage match = {match}/>} />
                 <Route path='/browse-categories' component={BrowseCategories}/>
                 <PrivateRoute path='/dashboard' component={DashboardRoutes}/>
                 </Switch> 

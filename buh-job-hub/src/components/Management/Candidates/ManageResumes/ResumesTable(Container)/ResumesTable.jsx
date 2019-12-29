@@ -18,7 +18,7 @@ class ResumesTable extends Component {
     renderResume = () => {
         return(
             this.props.resumes.map((resume, key) => {
-                let currentid = 1;
+                let currentid = 53 ;
                 if(resume.user_id == currentid)
                     return(
                         <tr>

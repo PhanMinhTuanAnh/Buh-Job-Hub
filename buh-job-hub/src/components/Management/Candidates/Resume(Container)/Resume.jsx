@@ -2,13 +2,32 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import './Resume.css'
+import * as actions from './../../../../react-redux/index_actions'
 
 class AddResume extends Component {
 
     constructor(props) {
         super(props);
+        let id;
+        let _resume = {
+            "title":null,
+            "location":null,
+            "current_salary":null,
+            "user_id": 53
+        };
+        this.props.resumes.map((resume, key) => {
+            if(resume.id == this.props.match.params.id){
+                _resume["title"] = resume["title"];
+                _resume["location"] = resume["location"];
+                _resume["current_salary"] = resume["current_salary"];
+                _resume["user_id"] = resume["user_id"];
+                id = resume["id"];
+            }
+        })
         this.state = {
-            intype: false,
+            id: id,
+            form: this.props.form,
+            resume: _resume,
             educations: [],
             experiences: [],
         }
@@ -21,12 +40,12 @@ class AddResume extends Component {
             <div id="titlebar">
                 <div class="row">
                     <div class="col-md-12">
-                    <h2>{this.props.form}</h2>
+                    <h2>{this.state.form}</h2>
                         <nav id="breadcrumbs">
                             <ul>
                                 <li><Link to="/">Home</Link></li>
                                 <li><Link to="/dashboard">Dashboard</Link></li>
-                                <li>{this.props.form}</li>
+                                <li>{this.state.form}</li>
                             </ul>
                         </nav>
                     </div>
@@ -35,34 +54,32 @@ class AddResume extends Component {
         )
     } 
 
-    getResume = () => {
-        let _resume = {
-            "id": null,
-            "title":null,
-            "location":null,
-            "user_id":null,
-            "user_name":null,
-            "user_email":null,
-            "created_at_convert":null
-        };
-        this.props.resumes.map((resume, key) => {
-            if(resume.id == this.props.match.params.id)
-                _resume = resume
+    onChangeDetailsAction = (e) =>{
+        let _resume = this.state.resume;
+        _resume[e.target.name] = e.target.value;
+        this.setState({
+            resume: _resume
         })
-        return _resume;
+        console.log(_resume);
     }
 
     details = () => {
-
-        let resume = this.getResume();
-
         let styleText = {
-            color: "black"
+            color: "black",
+            
         }
-        
+
 
         let style = {
             width: "100%",
+        }
+
+        let style1 = {
+            width: "80%",
+        }
+
+        let style2 = {
+            width: "20%",
         }
         return(
             <div class="dashboard-list-box margin-top-0">
@@ -71,11 +88,11 @@ class AddResume extends Component {
 
                 <div class="submit-page">
 
-                    <div class="form">
+                    {/* <div class="form">
                         <h5>Your Name</h5>
                         <input class="search-field" type="text" 
                             placeholder={resume.user_name == null ? "Your full name" : ""}
-                            defaultdefaultValue={resume.user_name == null ? "" : resume.user_name}
+                            defaultValue={resume.user_name == null ? "" : resume.user_name}
                             style = {styleText}
                         />
                     </div>
@@ -87,23 +104,40 @@ class AddResume extends Component {
                             defaultValue={resume.user_email == null ? "" : resume.user_email}
                             style = {styleText}
                         />
-                    </div>
+                    </div> */}
 
-                    <div class="form">
+                    <div class="form" style = {style}>
                         <h5>Professional Title</h5>
-                        <input class="search-field" type="text" 
-                            placeholder={resume.title == null ? "e.g. Web Developer" : ""} 
-                            defaultValue={resume.title == null ? "" : resume.title}
+                        <input type="text" 
+                            name="title"
+                            placeholder={this.state.resume.title == null ? "e.g. Web Developer" : ""} 
+                            defaultValue={this.state.resume.title == null ? "" : this.state.resume.title}
                             style = {styleText}
+                            onChange = {this.onChangeDetailsAction}
+
+                        />
+                    </div>
+                    
+
+                    <div class="form" style={style1}>
+                        <h5>Location</h5>
+                        <input type="text" 
+                            name="location"
+                            placeholder={this.state.resume.location == null ? "e.g. London, UK" : ""} 
+                            defaultValue={this.state.resume.location == null ? "" : this.state.resume.location}
+                            style = {styleText}
+                            onChange = {this.onChangeDetailsAction}
                         />
                     </div>
 
-                    <div class="form">
-                        <h5>Location</h5>
-                        <input class="search-field" type="text" 
-                            placeholder={resume.location == null ? "e.g. London, UK" : ""} 
-                            defaultValue={resume.location == null ? "" : resume.location}
+                    <div class="form" style = {style2}>
+                        <h5>Salary</h5>
+                        <input class="" type="text" 
+                            name="current_salary"
+                            placeholder={this.state.resume.current_salary == null ? "/ Hour" : ""} 
+                            defaultValue={this.state.resume.current_salary == null ? "" : this.state.resume.current_salary}
                             style = {styleText}
+                            onChange = {this.onChangeDetailsAction}
                         />
                     </div>
 
@@ -382,19 +416,46 @@ class AddResume extends Component {
         )
     }
 
+    onClickAdd = () =>{
+        this.props.actAddResumeRequest(this.state.resume);
+        this.setState({
+            form: "Edit Resume",
+        })
+    }
+
+    onClickSave = () =>{
+        let _resume = {
+            "id": this.state.id,
+            "title":this.state.resume["title"],
+            "location":this.state.resume["location"],
+            "current_salary":this.state.resume["current_salary"],
+            "user_id": this.state.resume["user_id"],
+        };
+        // console.log(_resume.id)
+        this.setState({
+            resume: _resume,
+        })
+        console.log(this.state.resume.id)
+        this.props.actUpdateResumeRequest(_resume);
+        
+    }
+
     table = () => {
+
         let styleButton = {
-            float: "right",
+            float: "right"
         }
 
-        let button = <Link to="#" class="button margin-top-30"><i class="fa fa-save"/> Save</Link>
+        let button = <button class="button margin-top-30" onClick = {this.onClickSave}><i class="fa fa-save"/> Save</button>
         
-        if(this.props.form == "Add Resume"){
-            button = <Link to="#" class="button margin-top-30"><i class="fa fa-plus-circle"/> Add</Link>
+        if(this.state.form == "Add Resume"){
+            button = <button class="button margin-top-30" onClick = {this.onClickAdd}><i class="fa fa-plus-circle"/> Add</button>
 
         }
 
         return(
+
+
             <div class="row">
                         
                 <div class="col-lg-12 col-md-12">
@@ -404,7 +465,7 @@ class AddResume extends Component {
                     {this.experience()}
 
                     {button}
-                    <Link to="#" class="button margin-top-30" style={styleButton}>Preview <i class="fa fa-arrow-circle-right"></i></Link>
+                    <Link to="/dashboard/manage-resumes" class="button margin-top-30" style={styleButton}>View <i class="fa fa-arrow-circle-right"></i></Link>
                 </div>
 
                 <div class="col-md-12">
@@ -436,4 +497,20 @@ const mapStateToProps = (state) => {
         resumes: state.resumes_reducer,
     }
 }
-export default connect(mapStateToProps, null)(AddResume);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actFetchResumesRequest: () => {
+            dispatch(actions.actFetchResumesRequest())
+        },
+        actDeleteResumeRequest: (id) => {
+            dispatch(actions.actDeleteResumeRequest(id))
+        },
+        actAddResumeRequest: (resume) =>{
+            dispatch(actions.actAddResumeRequest(resume))
+        },
+        actUpdateResumeRequest: (resume) =>{
+            dispatch(actions.actUpdateResumeRequest(resume))
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(AddResume);

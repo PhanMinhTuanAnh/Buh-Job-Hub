@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ManageJobsItem from './ManageJobsItem/ManageJobsItem';
+import {Link, NavLink,withRouter } from 'react-router-dom'
+
 
 export default class ManageJobs extends Component {
     render() {
@@ -13,8 +15,8 @@ export default class ManageJobs extends Component {
                                 <h2>Manage Resumes</h2>
                                 <nav id="breadcrumbs">
                                     <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#">Dashboard</a></li>
+                                        <li><Link to="/">Home</Link></li>
+                                        <li><Link to="/dashboard">Dashboard</Link></li>
                                         <li>Manage Resumes</li>
                                     </ul>
                                 </nav>

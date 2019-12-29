@@ -27,7 +27,7 @@ class Header extends React.Component {
                             <nav id="navigation" className="menu">
                                 <ul id="responsive">
                                     <li><NavLink to="/browse-jobs" activeClassName="selected">Jobs</NavLink></li>
-                                    <li><Link to="browse-resumes">Resumes</Link></li>
+                                    <li><NavLink to="/browse-resumes" activeClassName="selected">Resumes</NavLink></li>
                                     {localStorage.getItem("token")
                                             ?
                                             <>

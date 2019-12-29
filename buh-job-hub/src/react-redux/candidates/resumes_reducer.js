@@ -22,6 +22,13 @@ var appReducer = (state = initialState, action) => {
             index = findIndex(state, id);
             state.splice(index, 1);
             return [...state];
+        case types.ADD_RESUME:
+            state.push(action.resume);
+            return [...state];
+        case types.UPDATE_RESUME:
+            index = findIndex(state, action.resume.id)
+            state[index] = action.resume;
+            return [...state];
         default: return state;
     }
 };

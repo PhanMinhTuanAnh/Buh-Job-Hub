@@ -34,3 +34,37 @@ export const actDeleteResume = (id) => {
         id
     }
 }
+
+
+////Add 
+export const actAddResumeRequest = (resume) => {
+    return (dispatch) => {
+        return callApi('seeker_profiles/', 'POST', resume).then(res => {
+            console.log(res)
+            dispatch(actAddResume(res.data))
+        });
+    }
+}
+export const actAddResume = (resume) => {
+    return {
+        type: types.ADD_RESUME,
+        resume
+    }
+}
+
+
+
+export const actUpdateResumeRequest = (resume) => {
+    console.log(resume.id);
+    return (dispatch) => {
+        return callApi(`seeker_profiles/${resume.id}`, 'PUT', resume).then(res => {
+            dispatch(actUpdateResume(res.data))
+        });
+    }
+}
+export const actUpdateResume = (resume) => {
+    return {
+        type: types.UPDATE_RESUME,
+        resume
+    }
+}

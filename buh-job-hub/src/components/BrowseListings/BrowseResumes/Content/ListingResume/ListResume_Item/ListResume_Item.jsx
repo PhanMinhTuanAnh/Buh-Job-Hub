@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 
 export default class ListResume_Item extends Component {
     render() {
         return (
-            <li><a href="resume-page.html">
-                <img src="images/resumes-list-avatar-01.png" alt="" />
+            <li><Link to={`/browse-resumes/${this.props.resume.id}`}>
+                <img src={this.props.resume.user_image} alt="" />
                 <div className="resumes-list-content">
-                    <h4>John Doe <span>UX/UI Graphic Designer</span></h4>
-                    <span><i className="fa fa-map-marker" /> Melbourne</span>
-                    <span><i className="fa fa-money" /> $100 / hour</span>
-                    <p>Over 8000 hours on oDesk (only Drupal related). Highly motivated, goal-oriented, hands-on senior software engineer with extensive technical skills and over 15 years of experience in software development</p>
+                    <h4>{this.props.resume.user_name}<span>{this.props.resume.title}</span></h4>
+                    <span><i className="fa fa-map-marker" /> {this.props.resume.location}</span>
+                    <span><i className="fa fa-money" /> ${this.props.resume.current_salary} / hour</span>
                     <div className="skills">
                         <span>JavaScript</span>
                         <span>PHP</span>
@@ -17,7 +17,7 @@ export default class ListResume_Item extends Component {
                     </div>
                     <div className="clearfix" />
                 </div>
-            </a>
+            </Link>
                 <div className="clearfix" />
             </li>
         );

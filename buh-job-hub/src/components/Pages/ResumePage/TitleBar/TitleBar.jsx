@@ -1,19 +1,31 @@
 import React, { Component } from 'react'
+import * as actions from '../../../../react-redux/index_actions';
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 
-export default class TitleBar extends Component {
+class TitleBar extends Component {
+  componentDidMount(){
+    this.props.actFetchResumesRequest();
+  }
   render() {
+    let _resume;
+    this.props.resumes.map((resume, key) => {
+      if(resume.id == this.props.id)
+        _resume = resume
+      else return null;
+    })
+    console.log(_resume)
     return (
       <div id="titlebar" className="resume">
         <div className="container">
           <div className="ten columns">
             <div className="resume-titlebar">
-              <img src="images/resumes-list-avatar-01.png" alt="" />
+              <img src={_resume.user_image} alt="" />
               <div className="resumes-list-content">
-                <h4>John Doe <span>UX/UI Graphic Designer</span></h4>
-                <span className="icons"><i className="fa fa-map-marker" /> Mountain View, CA</span>
-                <span className="icons"><i className="fa fa-money" /> $100 / hour</span>
-                <span className="icons"><a href="#"><i className="fa fa-link" /> Website</a></span>
-                <span className="icons"><a href="/cdn-cgi/l/email-protection#503a3f383e7e343f35103528313d203c357e333f3d"><i className="fa fa-envelope" /> <span className="__cf_email__" data-cfemail="402a2f282e6e242f25002538212d302c256e232f2d">[email&nbsp;protected]</span></a></span>
+              <h4>{_resume.user_name} <span>{_resume.title}</span></h4>
+              <span className="icons"><i className="fa fa-map-marker" /> {_resume.location}</span>
+                <span className="icons"><i className="fa fa-money" /> ${_resume.current_salary} / hour</span><br/>
+                <span className="icons"><a href="/cdn-cgi/l/email-protection#503a3f383e7e343f35103528313d203c357e333f3d"><i className="fa fa-envelope" /> <span className="__cf_email__" data-cfemail="402a2f282e6e242f25002538212d302c256e232f2d">{_resume.user_email}</span></a></span>
                 <div className="skills">
                   <span>JavaScript</span>
                   <span>PHP</span>
@@ -47,3 +59,16 @@ export default class TitleBar extends Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+      resumes: state.resumes_reducer,
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+      actFetchResumesRequest: () => {
+          dispatch(actions.actFetchResumesRequest())
+      }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(TitleBar);

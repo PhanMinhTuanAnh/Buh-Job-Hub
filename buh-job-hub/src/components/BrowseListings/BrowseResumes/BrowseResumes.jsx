@@ -6,8 +6,8 @@ export default class BrowseResumes extends Component {
     return (
       <div>
         <div className="clearfix" />
-        <TitleBar />
-        <Content />
+        <TitleBar/>
+        <Content/>
       </div>
     );
   }

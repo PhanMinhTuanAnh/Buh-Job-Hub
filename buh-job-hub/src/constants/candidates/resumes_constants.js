@@ -1,2 +1,4 @@
 export const FETCH_ALL_RESUME= 'FETCH_ALL_RESUME';
 export const DELETE_RESUME= 'DELETE_RESUME';
+export const ADD_RESUME= 'ADD_RESUME';
+export const UPDATE_RESUME= 'UPDATE_RESUME';
