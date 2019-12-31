@@ -6,11 +6,11 @@ export default class FilterJob_ByLocation extends Component {
       <div className="widget">
         <h4>Location</h4>
         <form action="#" method="get">
-          <input type="text" placeholder="State / Province" defaultValue />
-          <input type="text" placeholder="City" defaultValue />
-          <input type="text" className="miles" placeholder="Miles" defaultValue />
+          <input type="text" placeholder="State / Province"  />
+          <input type="text" placeholder="City"  />
+          <input type="text" className="miles" placeholder="Miles"  />
           <label htmlFor="zip-code" className="from">from</label>
-          <input type="text" id="zip-code" className="zip-code" placeholder="Zip-Code" defaultValue /><br />
+          <input type="text" id="zip-code" className="zip-code" placeholder="Zip-Code"  /><br />
           <button className="button">Filter</button>
         </form>
       </div>

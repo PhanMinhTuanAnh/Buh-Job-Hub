@@ -73,3 +73,12 @@ export const actUpdateJobPost = (job_post) => {
         job_post
     }
 }
+// filter
+export const actFilterJobPost = (job_posts_filter) => {
+    console.log("ahih",job_posts_filter);
+
+    return {
+        type: types.FILTER_JOB_POSTS,
+        job_posts_filter
+    }
+}
